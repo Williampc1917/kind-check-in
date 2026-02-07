@@ -1,4 +1,5 @@
 import { Button } from "@/components/ui/button";
+import ThemeSwitcher from "@/components/ThemeSwitcher";
 import { Menu, X } from "lucide-react";
 import { useState } from "react";
 
@@ -46,8 +47,9 @@ const Navigation = () => {
           </button>
         </div>
 
-        {/* Desktop CTA */}
-        <div className="hidden md:block">
+        {/* Desktop CTA + Dev Theme */}
+        <div className="hidden md:flex items-center gap-3">
+          <ThemeSwitcher />
           <Button onClick={() => scrollToSection("waitlist")} className="rounded-xl">
             Join waitlist
           </Button>
