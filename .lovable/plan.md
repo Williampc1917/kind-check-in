@@ -1,122 +1,122 @@
 
 
-# Personal Safety Check-In App — Waitlist Landing Page
+# Use Cases Section Redesign
 
-## Overview
-A high-converting, Apple-inspired waitlist landing page that communicates trust, calm, and clarity. The design prioritizes conversion with strategic CTA placement while maintaining a premium, minimal aesthetic.
+## The Problem
+The current section has 6 cards, each with:
+- Title + icon
+- A "moment" paragraph
+- A nested "How SafeCheck helps" box with more text
 
----
-
-## Design System
-
-**Color Palette:**
-- Primary background: Clean white (#FFFFFF)
-- Secondary background: Soft gray (#F9FAFB)
-- Accent: Soft sage/teal (#5EADA4) — used sparingly for CTAs and highlights
-- Text: Near-black (#1A1A1A) for headings, muted gray (#6B7280) for body
-- Borders: Hairline gray (#E5E7EB)
-
-**Typography:**
-- System font stack (SF Pro-like feel: -apple-system, BlinkMacSystemFont, "Segoe UI")
-- Large, confident headlines with generous letter-spacing
-- Comfortable body text with ample line-height
-
-**Components:**
-- Rounded corners (16px for cards, 12px for buttons)
-- Subtle shadows for depth
-- Lots of whitespace
-- Clean iOS-style empty phone frames as placeholders
+This creates visual fatigue - too many words competing for attention.
 
 ---
 
-## Page Sections
+## The Solution: Visual-First "Journey Map" Layout
 
-### 1. Sticky Navigation
-- Logo/app name on left
-- Anchor links: "How it works" | "Privacy" | "FAQ"
-- "Join waitlist" button (accent color) on right
-- Smooth scroll behavior for all anchors
+A modern, scannable design that uses **illustration placeholders** as the hero element, with minimal supporting text.
 
-### 2. Hero Section (Above the Fold)
-- **Headline:** "If you don't check in, the people you trust will know."
-- **Subheadline:** "Set a timer for your commute, gym, date night, or walk home. The app stays quiet unless something goes wrong."
-- **Primary CTA:** "Join the waitlist" (sage accent button)
-- **Secondary CTA:** "See how it works" (text link, scrolls down)
-- **Trust bullets** (3 small icons/checkmarks):
-  - "No live location sharing"
-  - "Contacts don't need the app (SMS fallback)"
-  - "Designed for calm—not panic"
-- **One large empty iPhone placeholder frame** with label "Hero app screen"
+### New Layout Concept
 
-### 3. How It Works (3 Steps)
-- Clean horizontal/vertical step layout with numbered circles
-- **Step 1:** Create a check-in (duration + grace period + trusted contacts)
-  - Placeholder: "Create check-in screen"
-- **Step 2:** It runs quietly in the background (silence = success)
-  - Placeholder: "Timer running screen"
-- **Step 3:** If you don't tap "I'm safe," contacts get a status alert
-  - Placeholder: "I'm safe confirmation screen"
-- Each step includes a small empty iPhone frame placeholder
+**Option A: Horizontal Scroll Timeline (Recommended)**
+A single horizontal scrollable row with 6 scenario "scenes" - each featuring a large illustration placeholder with just a title overlay. Think Apple product pages or Spotify's genre cards.
 
-### 4. Benefits Section (5 Cards)
-Clean card grid with subtle shadows:
-1. **Proactive, not reactive** — Peace of mind before anything happens
-2. **One tap from lock screen** — Dynamic Island + widget support (iPhone convenience)
-3. **False-alarm friendly** — Grace periods + calm language for contacts
-4. **Customizable escalation ladder** — 3 tiers you control
-5. **Privacy-first** — Status-only alerts, never live location
+```text
+┌─────────────────────────────────────────────────────────────────────┐
+│                                                                     │
+│   "Backup for the moments you don't overthink"                     │
+│                                                                     │
+│   ┌──────────┐  ┌──────────┐  ┌──────────┐  ┌──────────┐  →        │
+│   │          │  │          │  │          │  │          │           │
+│   │ [ILLUS]  │  │ [ILLUS]  │  │ [ILLUS]  │ [ILLUS]  │           │
+│   │          │  │          │  │          │  │          │           │
+│   │ Late     │  │ Gym      │  │ Date     │  │ Rideshare│           │
+│   │ commute  │  │ session  │  │ night    │  │          │           │
+│   └──────────┘  └──────────┘  └──────────┘  └──────────┘           │
+│                                                                     │
+└─────────────────────────────────────────────────────────────────────┘
+```
 
-### 5. Use Cases (Icon List)
-Horizontal scrollable or grid of minimal icons:
-- Late-night commute
-- Gym session
-- Date night
-- Rideshare / travel
-- Quick check-in
+### Card Design (Simplified)
+Each card becomes a tall "scene card":
+- **Large illustration placeholder** (70% of card height) - rounded, soft gradient background
+- **Title only** - bold, 2-3 words max
+- **No description text** - the illustration tells the story
+- Subtle hover effect with slight scale
 
-### 6. Control + Privacy Section
-Dedicated section with calming messaging:
-- Even after alerts are sent, you can tap "I'm safe"
-- Future alerts stop immediately
-- Contacts get an "all good" update
-- No punishment for being late; no assumptions—just support
-- **Important disclaimer:** "This is not an emergency services app."
+### Illustration Placeholders to Create
 
-### 7. Waitlist Form (Mid-page CTA)
-Conversion-optimized form card:
-- **Email** (required)
-- **Phone** (optional)
-- **Primary use case** dropdown: Commute, Gym, Dates, Travel, Other
-- **Device** dropdown: iPhone, Android
-- **Button:** "Get early access" (sage accent)
-- **Microcopy:** "No spam. Only product updates."
-- **Success state:** Clean confirmation — "You're on the list. ✓"
+You'll need **6 minimal, line-art style illustrations** in the calm, Apple-inspired aesthetic:
 
-### 8. FAQ Section (Accordion Style)
-6 questions with expandable answers:
-1. Do my contacts need the app?
-2. Does it share my live location?
-3. What happens if I'm just late?
-4. Can I stop alerts after they start?
-5. How customizable is escalation?
-6. Is it free / pricing?
+| # | Scene | Illustration Brief |
+|---|-------|---------------------|
+| 1 | **Late-night commute** | Person walking under streetlights or moon, headphones on, relaxed posture |
+| 2 | **Gym session** | Person mid-workout (yoga mat, weights, or treadmill), phone in locker implied |
+| 3 | **Date night** | Two people at a cafe/restaurant table, warm ambient lighting, subtle |
+| 4 | **Rideshare** | Person in back seat of car, city buildings passing by window |
+| 5 | **Walking home** | Person on a quiet residential street, house silhouettes, peaceful night |
+| 6 | **Quick errand** | Person at a coffee shop counter or grocery store, casual/quick vibe |
 
-### 9. Final CTA Section
-- Repeated headline variation: "Feel safer without changing how you live."
-- Final "Join the waitlist" button
-
-### 10. Footer
-- Links: Privacy | Terms | Contact
-- Social placeholders (icons)
-- Copyright
+**Style notes for illustrations:**
+- Thin line art or flat minimal style (think Notion, Linear, or Apple's illustration style)
+- Soft sage/teal (#5EADA4) as accent color with neutral grays
+- Gender-neutral, diverse figures
+- Calm body language (no running, no panic)
+- Consistent dimensions: ~400x500px, transparent or soft gradient background
 
 ---
 
-## Technical Implementation
-- Fully responsive (mobile-first)
-- Smooth scroll navigation
-- Form with validation and success state (UI only, no backend)
-- Empty phone frame placeholders using clean CSS containers
-- Accessible and semantic HTML
-- Optimized for conversion with 3 strategic CTA placements
+## Technical Changes
+
+### Files Modified
+- `src/components/landing/UseCases.tsx` - Complete redesign
+
+### New Features
+1. **Horizontal scroll container** with snap points
+2. **Scene cards** with illustration placeholders (labeled for your designer)
+3. **Scroll indicators** (dots or fade hints on edges)
+4. **Reduced to 5 items** (combine "Walking home" + "Quick errand" into one simpler concept, or keep all 6 if preferred)
+
+### Responsive Behavior
+- **Desktop**: Horizontal scroll, 4 cards visible
+- **Tablet**: 2.5 cards visible, encourages scroll
+- **Mobile**: 1.5 cards visible, full swipe experience
+
+---
+
+## Code Structure Preview
+
+```tsx
+// Simplified card - visual-first
+const SceneCard = ({ title, illustrationLabel }) => (
+  <div className="min-w-[280px] h-[360px] rounded-3xl overflow-hidden relative group">
+    {/* Illustration placeholder */}
+    <div className="absolute inset-0 bg-gradient-to-br from-primary/5 to-primary/15 flex items-center justify-center">
+      <div className="text-center p-6">
+        <div className="w-32 h-32 mx-auto mb-4 rounded-2xl border-2 border-dashed border-primary/30 flex items-center justify-center">
+          <span className="text-xs text-muted-foreground">{illustrationLabel}</span>
+        </div>
+      </div>
+    </div>
+    
+    {/* Title overlay at bottom */}
+    <div className="absolute bottom-0 left-0 right-0 p-5 bg-gradient-to-t from-background/90">
+      <h3 className="text-lg font-semibold">{title}</h3>
+    </div>
+  </div>
+);
+```
+
+---
+
+## Summary
+
+| Before | After |
+|--------|-------|
+| 6 text-heavy cards | 6 visual scene cards |
+| Title + 2 paragraphs each | Title only (illustrations speak) |
+| Static grid layout | Horizontal scroll with snap |
+| No illustrations | Placeholder frames for custom art |
+
+This creates an Apple-style "moments" gallery that's scannable, modern, and invites the eye to explore rather than read.
 
