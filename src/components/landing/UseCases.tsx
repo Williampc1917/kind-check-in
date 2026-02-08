@@ -1,48 +1,36 @@
-import { Moon, Dumbbell, Heart, Car, Clock, House, type LucideIcon } from "lucide-react";
+import { useRef } from "react";
+import { ChevronLeft, ChevronRight } from "lucide-react";
+import { Button } from "@/components/ui/button";
 
-type UseCaseItem = {
-  icon: LucideIcon;
+type SceneItem = {
   title: string;
-  moment: string;
-  backup: string;
+  illustrationBrief: string;
 };
 
-const USE_CASES: UseCaseItem[] = [
+const SCENES: SceneItem[] = [
   {
-    icon: Moon,
     title: "Late-night commute",
-    moment: "You are heading home and do not want to remember a manual safety text.",
-    backup: "Set a check-in once. If you miss it, your contact gets a calm status alert.",
+    illustrationBrief: "Person walking under streetlights, headphones on, relaxed posture",
   },
   {
-    icon: Dumbbell,
     title: "Gym session",
-    moment: "Your phone is in a locker and your routine runs long.",
-    backup: "SafeCheck waits through your grace window before escalating anything.",
+    illustrationBrief: "Person mid-workout, phone in locker implied",
   },
   {
-    icon: Heart,
     title: "Date night",
-    moment: "You want quiet reassurance without live location sharing.",
-    backup: "Only check-in status is shared if you do not confirm on time.",
+    illustrationBrief: "Two people at cafe table, warm ambient lighting",
   },
   {
-    icon: Car,
-    title: "Rideshare or travel",
-    moment: "Plans change fast with transfers, delays, or a longer route.",
-    backup: "Adjust timing in seconds and keep your backup plan intact.",
+    title: "Rideshare",
+    illustrationBrief: "Person in back seat, city buildings passing by",
   },
   {
-    icon: House,
     title: "Walking home",
-    moment: "It is a short route, but you still want someone in your corner.",
-    backup: "A quick timer runs in the background while you focus on getting home.",
+    illustrationBrief: "Person on quiet residential street, peaceful night",
   },
   {
-    icon: Clock,
     title: "Quick errand",
-    moment: "You step out for ten minutes and forget to update anyone.",
-    backup: "No check-in needed unless time runs out and you stay silent.",
+    illustrationBrief: "Person at coffee shop counter, casual vibe",
   },
 ];
 
@@ -51,47 +39,107 @@ const SECTION_COPY = {
   subtitle: "From late rides to quick errands, SafeCheck quietly has your back.",
 };
 
-interface UseCasePillProps {
-  item: UseCaseItem;
+interface SceneCardProps {
+  scene: SceneItem;
   index: number;
 }
 
-const UseCaseCard = ({ item, index }: UseCasePillProps) => (
-  <li
-    className="rounded-2xl border border-border/80 bg-card p-4 md:p-5 card-shadow transition-transform duration-300 hover:-translate-y-1 animate-in fade-in slide-in-from-bottom-2"
-    style={{ animationDelay: `${index * 80}ms` }}
+const SceneCard = ({ scene, index }: SceneCardProps) => (
+  <div
+    className="min-w-[260px] sm:min-w-[280px] h-[340px] sm:h-[380px] rounded-3xl overflow-hidden relative group flex-shrink-0 snap-center"
+    style={{ animationDelay: `${index * 100}ms` }}
   >
-    <div className="flex items-center gap-2.5">
-      <div className="w-8 h-8 rounded-full bg-primary/10 flex items-center justify-center flex-shrink-0">
-        <item.icon className="w-4 h-4 text-primary" />
+    {/* Gradient background */}
+    <div className="absolute inset-0 bg-gradient-to-br from-primary/5 via-primary/10 to-primary/20 transition-all duration-500 group-hover:from-primary/10 group-hover:to-primary/25" />
+    
+    {/* Illustration placeholder */}
+    <div className="absolute inset-0 flex items-center justify-center p-6">
+      <div className="text-center">
+        <div className="w-28 h-36 sm:w-32 sm:h-40 mx-auto rounded-2xl border-2 border-dashed border-primary/30 flex items-center justify-center p-3 bg-background/50 backdrop-blur-sm">
+          <span className="text-[10px] sm:text-xs text-muted-foreground text-center leading-relaxed">
+            {scene.illustrationBrief}
+          </span>
+        </div>
       </div>
-      <h3 className="text-sm md:text-base font-semibold">{item.title}</h3>
     </div>
-
-    <p className="mt-3 text-sm leading-relaxed text-muted-foreground">{item.moment}</p>
-
-    <div className="mt-4 rounded-xl border border-border/70 bg-muted/40 p-3">
-      <p className="text-[11px] uppercase tracking-[0.08em] text-muted-foreground">How SafeCheck helps</p>
-      <p className="mt-1 text-sm leading-relaxed">{item.backup}</p>
+    
+    {/* Title overlay at bottom */}
+    <div className="absolute bottom-0 left-0 right-0 p-5 bg-gradient-to-t from-background via-background/80 to-transparent">
+      <h3 className="text-lg font-semibold text-foreground">{scene.title}</h3>
     </div>
-  </li>
+    
+    {/* Subtle hover scale effect */}
+    <div className="absolute inset-0 transition-transform duration-300 group-hover:scale-[1.02]" />
+  </div>
 );
 
 const UseCases = () => {
+  const scrollRef = useRef<HTMLDivElement>(null);
+
+  const scroll = (direction: "left" | "right") => {
+    if (scrollRef.current) {
+      const scrollAmount = 300;
+      scrollRef.current.scrollBy({
+        left: direction === "left" ? -scrollAmount : scrollAmount,
+        behavior: "smooth",
+      });
+    }
+  };
+
   return (
-    <section className="py-16 md:py-20 bg-secondary">
+    <section className="py-16 md:py-24 bg-secondary overflow-hidden">
       <div className="container mx-auto px-4">
         {/* Header */}
-        <div className="text-center mb-10 md:mb-12">
-          <h2 className="text-2xl md:text-3xl font-semibold mb-3">{SECTION_COPY.title}</h2>
-          <p className="text-muted-foreground max-w-2xl mx-auto">{SECTION_COPY.subtitle}</p>
+        <div className="text-center mb-10 md:mb-14">
+          <h2 className="text-2xl md:text-3xl lg:text-4xl font-semibold mb-3">
+            {SECTION_COPY.title}
+          </h2>
+          <p className="text-muted-foreground max-w-xl mx-auto">
+            {SECTION_COPY.subtitle}
+          </p>
         </div>
 
-        <ul className="grid gap-4 md:gap-6 sm:grid-cols-2 lg:grid-cols-3">
-          {USE_CASES.map((item, index) => (
-            <UseCaseCard key={item.title} item={item} index={index} />
-          ))}
-        </ul>
+        {/* Scroll container wrapper */}
+        <div className="relative">
+          {/* Navigation arrows - hidden on mobile */}
+          <Button
+            variant="outline"
+            size="icon"
+            className="absolute left-0 top-1/2 -translate-y-1/2 -translate-x-2 z-10 hidden md:flex h-10 w-10 rounded-full bg-background/80 backdrop-blur-sm shadow-lg border-border/50 hover:bg-background"
+            onClick={() => scroll("left")}
+          >
+            <ChevronLeft className="h-5 w-5" />
+          </Button>
+          
+          <Button
+            variant="outline"
+            size="icon"
+            className="absolute right-0 top-1/2 -translate-y-1/2 translate-x-2 z-10 hidden md:flex h-10 w-10 rounded-full bg-background/80 backdrop-blur-sm shadow-lg border-border/50 hover:bg-background"
+            onClick={() => scroll("right")}
+          >
+            <ChevronRight className="h-5 w-5" />
+          </Button>
+
+          {/* Fade edges */}
+          <div className="absolute left-0 top-0 bottom-0 w-8 bg-gradient-to-r from-secondary to-transparent z-[5] pointer-events-none" />
+          <div className="absolute right-0 top-0 bottom-0 w-8 bg-gradient-to-l from-secondary to-transparent z-[5] pointer-events-none" />
+
+          {/* Horizontal scroll container */}
+          <div
+            ref={scrollRef}
+            className="flex gap-4 md:gap-6 overflow-x-auto scrollbar-hide snap-x snap-mandatory pb-4 px-4 -mx-4"
+            style={{ scrollbarWidth: "none", msOverflowStyle: "none" }}
+          >
+            {SCENES.map((scene, index) => (
+              <SceneCard key={scene.title} scene={scene} index={index} />
+            ))}
+          </div>
+        </div>
+
+        {/* Scroll hint for mobile */}
+        <p className="text-center text-xs text-muted-foreground mt-4 md:hidden">
+          Swipe to explore →
+        </p>
       </div>
     </section>
   );
