@@ -1,9 +1,8 @@
 import Navigation from "@/components/landing/Navigation";
 import Hero from "@/components/landing/Hero";
 import HowItWorks from "@/components/landing/HowItWorks";
-import Benefits from "@/components/landing/Benefits";
 import UseCases from "@/components/landing/UseCases";
-import Privacy from "@/components/landing/Privacy";
+import WhatIfImLate from "@/components/landing/WhatIfImLate";
 import WaitlistForm from "@/components/landing/WaitlistForm";
 import FAQ from "@/components/landing/FAQ";
 import FinalCTA from "@/components/landing/FinalCTA";
@@ -16,9 +15,8 @@ const Index = () => {
       <main>
         <Hero />
         <HowItWorks />
-        <Benefits />
         <UseCases />
-        <Privacy />
+        <WhatIfImLate />
         <WaitlistForm />
         <FAQ />
         <FinalCTA />

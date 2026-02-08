@@ -7,24 +7,32 @@ const HowItWorks = () => {
       title: "Create a check-in",
       description: "Set your duration, optional grace period, and choose your trusted contacts.",
       placeholder: "Create check-in screen",
+      featureBadge: "Customizable escalation",
+      featureDetail: "Set 3 tiers of alerts — text, call, then additional contacts",
     },
     {
       number: 2,
       title: "Start and go live your day",
       description: "Your timer runs quietly in the background while you commute, work out, or head home.",
       placeholder: "Timer running screen",
+      featureBadge: "Lock screen & Dynamic Island",
+      featureDetail: "One tap from your lock screen, no app unlock needed",
     },
     {
       number: 3,
       title: "Check in with one tap",
       description: "When your timer ends, confirm you're safe from your phone in seconds.",
       placeholder: "I'm safe tap screen",
+      featureBadge: "False-alarm friendly",
+      featureDetail: "Grace periods give you extra time. Contacts receive calm, supportive language",
     },
     {
       number: 4,
       title: "Missed check-ins trigger your backup plan",
       description: "If you don't check in, trusted contacts get your status alert based on your escalation settings.",
       placeholder: "Escalation alert screen",
+      featureBadge: "Privacy-first",
+      featureDetail: "Status-only alerts, never live location. Your privacy is non-negotiable",
     },
   ];
 
@@ -60,7 +68,13 @@ const HowItWorks = () => {
                     {step.number}
                   </div>
                   <h3 className="text-xl md:text-2xl font-semibold mb-3">{step.title}</h3>
-                  <p className="text-muted-foreground leading-relaxed">{step.description}</p>
+                  <p className="text-muted-foreground leading-relaxed mb-4">{step.description}</p>
+                  
+                  {/* Feature callout badge */}
+                  <div className="inline-flex items-center gap-2 px-3 py-2 rounded-lg bg-primary/10 border border-primary/20">
+                    <span className="text-sm font-medium text-primary">{step.featureBadge}</span>
+                  </div>
+                  <p className="text-xs text-muted-foreground mt-2">{step.featureDetail}</p>
                 </div>
               </div>
             );
