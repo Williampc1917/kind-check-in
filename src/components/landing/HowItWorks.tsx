@@ -17,10 +17,10 @@ const HowItWorks = () => {
     {
       number: 2,
       title: "Start and go live your day",
-      description: "Your timer runs quietly in the background while you commute, work out, or head home.",
+      description: "Your check-in runs as a Live Activity on your lock screen and Dynamic Island — always visible, never buried in the app.",
       placeholder: "Timer running screen",
       featureBadge: "Lock screen & Dynamic Island",
-      featureDetail: "One tap from your lock screen, no app unlock needed",
+      featureDetail: "See your countdown, check in, or extend — all without unlocking your phone",
     },
     {
       number: 3,

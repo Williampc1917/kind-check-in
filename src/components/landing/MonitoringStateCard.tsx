@@ -1,5 +1,6 @@
 import { useEffect, useMemo, useState } from "react";
 import "./MonitoringStateCard.css";
+import safecheckLogo from "@/imgs/safecheck-high-resolution-logo-transparent.png";
 
 type MonitoringStateCardProps = {
   minutesRemaining: number;
@@ -22,8 +23,8 @@ type ActivityCardProps = {
   includeTestId?: boolean;
 };
 
-const SWIPE_INTERVAL_MS = 2600;
-const SWIPE_DURATION_MS = 520;
+const SWIPE_INTERVAL_MS = 3200;
+const SWIPE_DURATION_MS = 600;
 
 function minutesText(minutes: number): string {
   if (minutes >= 60) {
@@ -40,7 +41,6 @@ function minutesText(minutes: number): string {
 }
 
 function progressFill(minutes: number): number {
-  // Monitoring state (State 1) maps to > 10 min. Keep to 25/50/75/100 buckets.
   if (minutes >= 26) return 1;
   if (minutes >= 21) return 0.75;
   if (minutes >= 16) return 0.5;
@@ -105,6 +105,11 @@ const ActivityCard = ({
       aria-label="Safety check-in monitoring"
       aria-hidden={ariaHidden || undefined}
     >
+      {/* Logo icon */}
+      <div className="monitoring-logo">
+        <img src={safecheckLogo} alt="SafeCheck" className="monitoring-logo-img" />
+      </div>
+
       <header className="monitoring-top">
         <h2 className="monitoring-title">{minutesText(snapshot.minutesRemaining)}</h2>
 
@@ -119,7 +124,7 @@ const ActivityCard = ({
           </button>
           <button
             type="button"
-            className="monitoring-pill monitoring-pill-secondary"
+            className="monitoring-pill monitoring-pill-extend"
             onClick={onExtend15}
             tabIndex={ariaHidden ? -1 : 0}
           >
@@ -159,56 +164,64 @@ const MonitoringStateCard = ({
     [minutesRemaining, deadline]
   );
   const [currentIndex, setCurrentIndex] = useState(0);
-  const [isSwiping, setIsSwiping] = useState(false);
+  const [phase, setPhase] = useState<"visible" | "exiting" | "entering">("visible");
   const nextIndex = (currentIndex + 1) % snapshots.length;
 
   useEffect(() => {
     setCurrentIndex(0);
-    setIsSwiping(false);
+    setPhase("visible");
   }, [minutesRemaining, deadline]);
 
   useEffect(() => {
     if (snapshots.length < 2) return;
 
     const interval = window.setInterval(() => {
-      setIsSwiping((active) => (active ? active : true));
+      setPhase("exiting");
     }, SWIPE_INTERVAL_MS);
 
     return () => window.clearInterval(interval);
   }, [snapshots.length]);
 
   useEffect(() => {
-    if (!isSwiping) return;
+    if (phase === "exiting") {
+      const timeout = window.setTimeout(() => {
+        setCurrentIndex((i) => (i + 1) % snapshots.length);
+        setPhase("entering");
+      }, SWIPE_DURATION_MS / 2);
+      return () => window.clearTimeout(timeout);
+    }
 
-    const timeout = window.setTimeout(() => {
-      setCurrentIndex((index) => (index + 1) % snapshots.length);
-      setIsSwiping(false);
-    }, SWIPE_DURATION_MS);
+    if (phase === "entering") {
+      const timeout = window.setTimeout(() => {
+        setPhase("visible");
+      }, SWIPE_DURATION_MS / 2);
+      return () => window.clearTimeout(timeout);
+    }
+  }, [phase, snapshots.length]);
 
-    return () => window.clearTimeout(timeout);
-  }, [isSwiping, snapshots.length]);
+  const displayIndex = phase === "exiting" ? currentIndex : phase === "entering" ? nextIndex : currentIndex;
 
   return (
     <div className="monitoring-shell">
       <div className="monitoring-carousel" aria-live="polite">
-        <div className={`monitoring-track ${isSwiping ? "is-swiping" : ""}`}>
-          <div className="monitoring-slide">
-            <ActivityCard
-              snapshot={snapshots[currentIndex]}
-              onImSafe={onImSafe}
-              onExtend15={onExtend15}
-              includeTestId
-            />
-          </div>
-          <div className="monitoring-slide monitoring-slide-preview">
-            <ActivityCard
-              snapshot={snapshots[nextIndex]}
-              onImSafe={onImSafe}
-              onExtend15={onExtend15}
-              ariaHidden
-            />
-          </div>
+        <div className={`monitoring-fade-wrapper monitoring-phase-${phase}`}>
+          <ActivityCard
+            snapshot={snapshots[displayIndex]}
+            onImSafe={onImSafe}
+            onExtend15={onExtend15}
+            includeTestId
+          />
         </div>
+      </div>
+
+      {/* Dot indicators */}
+      <div className="monitoring-dots">
+        {snapshots.map((_, i) => (
+          <span
+            key={i}
+            className={`monitoring-dot ${i === displayIndex ? "monitoring-dot-active" : ""}`}
+          />
+        ))}
       </div>
     </div>
   );
