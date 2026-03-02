@@ -2,6 +2,7 @@ import { Button } from "@/components/ui/button";
 import ThemeSwitcher from "@/components/ThemeSwitcher";
 import { Menu, X } from "lucide-react";
 import { useState } from "react";
+import safeCheckLogo from "@/imgs/safecheck-high-resolution-logo-transparent.png";
 
 const Navigation = () => {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
@@ -18,11 +19,12 @@ const Navigation = () => {
     <header className="fixed top-0 left-0 right-0 z-50 bg-background/80 backdrop-blur-md border-b border-border">
       <nav className="container mx-auto px-4 h-16 flex items-center justify-between">
         {/* Logo */}
-        <div className="flex items-center gap-2">
-          <div className="w-8 h-8 rounded-lg bg-primary flex items-center justify-center">
-            <span className="text-primary-foreground font-bold text-sm">SC</span>
-          </div>
-          <span className="font-semibold text-lg">SafeCheck</span>
+        <div className="flex items-center">
+          <img
+            src={safeCheckLogo}
+            alt="SafeCheck logo"
+            className="h-8 w-auto md:h-9 object-contain"
+          />
         </div>
 
         {/* Desktop Navigation */}

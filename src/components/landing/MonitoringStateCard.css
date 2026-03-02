@@ -1,0 +1,210 @@
+.monitoring-shell {
+  width: 100%;
+  max-width: 700px;
+  position: relative;
+  padding-top: 2px;
+}
+
+.monitoring-carousel {
+  width: 100%;
+  overflow: hidden;
+  border-radius: 20px;
+}
+
+.monitoring-track {
+  display: flex;
+  width: 100%;
+  transform: translateX(0);
+  will-change: transform;
+}
+
+.monitoring-track.is-swiping {
+  transform: translateX(-100%);
+  transition: transform 520ms cubic-bezier(0.33, 1, 0.68, 1);
+}
+
+.monitoring-slide {
+  flex: 0 0 100%;
+  min-width: 0;
+  padding: 0 4px;
+}
+
+.monitoring-slide-preview {
+  pointer-events: none;
+}
+
+.monitoring-card {
+  width: 100%;
+  border-radius: 18px;
+}
+
+.monitoring-live-card {
+  position: relative;
+  border: 1px solid rgba(221, 226, 234, 0.96);
+  background:
+    radial-gradient(140% 100% at 50% 0%, rgba(255, 255, 255, 0.985) 0%, rgba(255, 255, 255, 0.95) 54%, rgba(248, 250, 252, 0.98) 100%);
+  padding: 14px;
+  box-shadow:
+    0 1px 1px rgba(15, 23, 42, 0.03),
+    0 10px 22px rgba(15, 23, 42, 0.1),
+    inset 0 1px 0 rgba(255, 255, 255, 0.95);
+}
+
+.monitoring-live-card::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 14px;
+  right: 14px;
+  height: 1px;
+  background: rgba(255, 255, 255, 0.92);
+}
+
+.monitoring-top {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.monitoring-title {
+  margin: 0;
+  color: #111827;
+  font-size: 19px;
+  font-weight: 600;
+  line-height: 1.2;
+  white-space: nowrap;
+  letter-spacing: -0.01em;
+}
+
+.monitoring-actions {
+  margin-left: auto;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.monitoring-pill {
+  border: 0;
+  border-radius: 999px;
+  height: 35px;
+  padding: 0 13px;
+  font-size: 14px;
+  font-weight: 600;
+  line-height: 1;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  transition: transform 180ms ease;
+}
+
+.monitoring-pill:hover {
+  transform: translateY(-1px);
+}
+
+.monitoring-pill:active {
+  transform: translateY(0);
+}
+
+.monitoring-pill-primary {
+  background: linear-gradient(180deg, #36d97a 0%, #22c55e 100%);
+  color: #ffffff;
+  box-shadow: 0 3px 8px rgba(34, 197, 94, 0.3);
+}
+
+.monitoring-pill-secondary {
+  background: #f3f4f6;
+  color: #22c55e;
+}
+
+.monitoring-subtitle {
+  margin: 8px 0;
+  color: #6b7280;
+  font-size: 12px;
+  line-height: 1.3;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.monitoring-progress-track {
+  width: 100%;
+  height: 6px;
+  border-radius: 999px;
+  background: #e5e7eb;
+  overflow: hidden;
+}
+
+.monitoring-progress-fill {
+  height: 100%;
+  border-radius: 999px;
+  background: linear-gradient(90deg, #37d87a 0%, #22c55e 85%);
+  transition: width 360ms cubic-bezier(0.25, 0.85, 0.25, 1);
+}
+
+@media (max-width: 900px) {
+  .monitoring-shell {
+    max-width: 100%;
+  }
+}
+
+@media (max-width: 640px) {
+  .monitoring-shell {
+    padding-top: 2px;
+  }
+
+  .monitoring-slide {
+    padding: 0 2px;
+  }
+
+  .monitoring-live-card {
+    padding: 12px;
+  }
+
+  .monitoring-title {
+    font-size: 17px;
+  }
+
+  .monitoring-pill {
+    height: 32px;
+    padding: 0 10px;
+    font-size: 13px;
+    gap: 5px;
+  }
+}
+
+@media (max-width: 430px) {
+  .monitoring-top {
+    flex-wrap: wrap;
+    gap: 7px;
+  }
+
+  .monitoring-title {
+    flex: 1 1 100%;
+    white-space: normal;
+  }
+
+  .monitoring-actions {
+    margin-left: 0;
+    width: 100%;
+  }
+
+  .monitoring-pill {
+    flex: 0 0 auto;
+  }
+
+  .monitoring-subtitle {
+    white-space: normal;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .monitoring-track.is-swiping {
+    transition: none;
+  }
+
+  .monitoring-pill,
+  .monitoring-progress-fill {
+    transition: none;
+  }
+}
