@@ -1,10 +1,7 @@
 import PhonePlaceholder from "./PhonePlaceholder";
-import MonitoringStateCard from "./MonitoringStateCard";
+import LiveActivityPhonePreview from "./LiveActivityPhonePreview";
 
 const HowItWorks = () => {
-  const monitoringMinutes = 22;
-  const monitoringDeadline = new Date(Date.now() + monitoringMinutes * 60 * 1000);
-
   const steps = [
     {
       number: 1,
@@ -64,10 +61,7 @@ const HowItWorks = () => {
                 <div className={isReversed ? "md:order-2" : ""}>
                   <div className="flex justify-center">
                     {step.number === 2 ? (
-                      <MonitoringStateCard
-                        minutesRemaining={monitoringMinutes}
-                        deadline={monitoringDeadline}
-                      />
+                      <LiveActivityPhonePreview />
                     ) : (
                       <PhonePlaceholder label={step.placeholder} size="md" />
                     )}

@@ -1,0 +1,300 @@
+/* Phone shell — shows bottom portion like iOS preview */
+.la-phone-shell {
+  position: relative;
+  width: 280px;
+  height: 420px;
+  margin: 0 auto;
+}
+
+.la-phone-bezel {
+  position: absolute;
+  inset: 0;
+  background: #000;
+  border-radius: 40px;
+  overflow: hidden;
+  box-shadow:
+    0 20px 50px rgba(0, 0, 0, 0.35),
+    inset 0 0 0 1px rgba(255, 255, 255, 0.12);
+}
+
+.la-phone-screen {
+  position: absolute;
+  inset: 6px;
+  border-radius: 34px;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+}
+
+/* Wallpaper gradient */
+.la-wallpaper {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    145deg,
+    #94e3e6 0%,
+    #1fbde0 35%,
+    #1457c7 100%
+  );
+}
+
+.la-wallpaper-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    to bottom,
+    transparent 0%,
+    rgba(0, 0, 0, 0.08) 100%
+  );
+}
+
+/* Top fade to hide upper phone edge smoothly */
+.la-phone-top-fade {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 50%;
+  pointer-events: none;
+  border-radius: 40px 40px 0 0;
+  background: linear-gradient(
+    to bottom,
+    transparent 0%,
+    transparent 10%,
+    rgba(255, 255, 255, 0) 100%
+  );
+  -webkit-mask-image: linear-gradient(
+    to bottom,
+    black 0%,
+    transparent 60%
+  );
+  mask-image: linear-gradient(
+    to bottom,
+    black 0%,
+    transparent 60%
+  );
+}
+
+/* Card area */
+.la-card-wrapper {
+  position: relative;
+  padding: 12px;
+  padding-bottom: 32px;
+  z-index: 2;
+}
+
+.la-card-container {
+  transition: opacity 350ms ease, transform 350ms ease;
+}
+
+.la-card-fade-in {
+  opacity: 1;
+  transform: scale(1);
+}
+
+.la-card-fade-out {
+  opacity: 0;
+  transform: scale(0.97);
+  pointer-events: none;
+}
+
+.la-marked-safe-card {
+  position: absolute;
+  inset: 12px;
+  bottom: 32px;
+}
+
+/* Live Activity card */
+.la-live-card {
+  background: rgba(255, 255, 255, 0.97);
+  border-radius: 22px;
+  padding: 14px;
+  box-shadow:
+    0 4px 20px rgba(0, 0, 0, 0.12),
+    0 1px 4px rgba(0, 0, 0, 0.06);
+  border: 1px solid rgba(0, 0, 0, 0.06);
+}
+
+.la-card-top {
+  display: flex;
+  align-items: flex-start;
+  gap: 8px;
+}
+
+.la-card-left {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  flex-shrink: 0;
+}
+
+.la-logo {
+  width: 18px;
+  height: 18px;
+  object-fit: contain;
+}
+
+.la-minutes {
+  font-size: 17px;
+  font-weight: 600;
+  color: #111;
+  white-space: nowrap;
+  line-height: 1.2;
+  letter-spacing: -0.01em;
+}
+
+.la-card-buttons {
+  margin-left: auto;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.la-btn-safe {
+  border: none;
+  border-radius: 999px;
+  height: 36px;
+  padding: 0 14px;
+  font-size: 13px;
+  font-weight: 600;
+  color: #fff;
+  background: linear-gradient(180deg, #36d97a 0%, #22c55e 100%);
+  cursor: default;
+  transition: transform 120ms ease, box-shadow 600ms ease;
+  white-space: nowrap;
+}
+
+.la-btn-extend {
+  border: none;
+  border-radius: 999px;
+  height: 36px;
+  padding: 0 10px;
+  font-size: 13px;
+  font-weight: 600;
+  color: #000;
+  background: #fad919;
+  cursor: default;
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  transition: transform 120ms ease, box-shadow 600ms ease;
+  white-space: nowrap;
+}
+
+.la-timer-icon {
+  font-size: 13px;
+}
+
+.la-safe-by {
+  display: block;
+  margin-top: 8px;
+  font-size: 11px;
+  color: #6b7280;
+  line-height: 1.3;
+}
+
+/* Progress bar */
+.la-progress-track {
+  margin-top: 8px;
+  width: 100%;
+  height: 5px;
+  border-radius: 999px;
+  background: #e5e7eb;
+  overflow: hidden;
+}
+
+.la-progress-fill {
+  height: 100%;
+  border-radius: 999px;
+  background: linear-gradient(90deg, #37d87a 0%, #22c55e 85%);
+  transition: width 800ms cubic-bezier(0.25, 0.85, 0.25, 1);
+}
+
+/* Marked safe state */
+.la-safe-state {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 4px;
+  min-height: 120px;
+}
+
+.la-safe-check {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  background: #22c55e;
+  color: #fff;
+  font-size: 18px;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.la-safe-title {
+  font-size: 14px;
+  font-weight: 600;
+  color: #111;
+}
+
+.la-safe-subtitle {
+  font-size: 11px;
+  color: #6b7280;
+}
+
+/* Home indicator */
+.la-home-indicator {
+  width: 110px;
+  height: 4px;
+  border-radius: 2px;
+  background: rgba(255, 255, 255, 0.55);
+  margin: 0 auto;
+  margin-bottom: 8px;
+  z-index: 3;
+  position: relative;
+}
+
+/* Responsive */
+@media (max-width: 640px) {
+  .la-phone-shell {
+    width: 240px;
+    height: 360px;
+  }
+
+  .la-phone-bezel {
+    border-radius: 34px;
+  }
+
+  .la-phone-screen {
+    border-radius: 28px;
+  }
+
+  .la-minutes {
+    font-size: 15px;
+  }
+
+  .la-btn-safe,
+  .la-btn-extend {
+    height: 32px;
+    padding: 0 10px;
+    font-size: 12px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .la-card-container {
+    transition: none;
+  }
+
+  .la-progress-fill {
+    transition: none;
+  }
+
+  .la-btn-safe,
+  .la-btn-extend {
+    transition: none;
+  }
+}
