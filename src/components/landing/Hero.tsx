@@ -1,6 +1,5 @@
 import { Button } from "@/components/ui/button";
 import { Check } from "lucide-react";
-import PhonePlaceholder from "./PhonePlaceholder";
 
 const Hero = () => {
   const scrollToSection = (id: string) => {
@@ -11,24 +10,37 @@ const Hero = () => {
   };
 
   const trustBullets = [
-    "No need to remember to text.",
+    "Check in from your lock screen.",
     "No live location sharing.",
-    "Only alerts if you don't check in.",
+    "Only alerts if you miss it.",
   ];
 
   return (
-    <section className="pt-24 pb-16 md:pt-32 md:pb-24 bg-background">
-      <div className="container mx-auto px-5 sm:px-6 lg:px-8">
+    <section className="bg-background pt-16">
+      <div className="container mx-auto flex min-h-[calc(100svh-4rem)] items-center px-5 py-16 sm:px-6 md:py-20 lg:px-8">
         <div className="mx-auto flex max-w-4xl flex-col items-center text-center">
-          <h1 className="max-w-3xl text-4xl md:text-5xl lg:text-6xl font-semibold leading-tight mb-6">
-            Miss a check-in. Your trusted contacts get a heads-up.
+          <h1 className="mb-6 max-w-[12ch] text-4xl font-semibold leading-[1.02] tracking-[-0.045em] md:text-5xl lg:text-6xl">
+            Backup for the moments you don&apos;t overthink
           </h1>
-          <p className="max-w-2xl text-lg md:text-xl text-muted-foreground mb-8 leading-relaxed">
-            For commutes, gym sessions, date nights, and walks home. We'll notify your trusted contacts only if you don't check in.
+          <p className="mb-8 max-w-2xl text-lg leading-relaxed text-muted-foreground md:text-xl">
+            Set a check-in, go about your day, and if you don&apos;t check in, your trusted contacts get a heads-up.
           </p>
 
-          {/* CTAs */}
-          <div className="flex flex-col sm:flex-row sm:justify-center gap-4 mb-8 w-full sm:w-auto">
+          <div className="mb-10 flex max-w-3xl flex-wrap items-center justify-center gap-3">
+            {trustBullets.map((bullet, index) => (
+              <div
+                key={index}
+                className="inline-flex items-center gap-2.5 rounded-full border border-border/80 bg-secondary px-4 py-2 text-sm font-medium text-foreground/80 shadow-sm"
+              >
+                <div className="flex h-5 w-5 items-center justify-center rounded-full bg-primary/15">
+                  <Check className="h-3 w-3 text-primary" />
+                </div>
+                <p>{bullet}</p>
+              </div>
+            ))}
+          </div>
+
+          <div className="flex w-full flex-col gap-4 sm:w-auto sm:flex-row sm:justify-center">
             <Button
               onClick={() => scrollToSection("waitlist")}
               size="lg"
@@ -44,26 +56,6 @@ const Hero = () => {
             >
               See how it works
             </Button>
-          </div>
-
-          {/* Trust Bullets */}
-          <div className="space-y-2 mb-10 md:mb-12 w-full max-w-md">
-            {trustBullets.map((bullet, index) => (
-              <div
-                key={index}
-                className="flex items-center justify-center gap-2.5"
-              >
-                <div className="w-4 h-4 rounded-full bg-primary/10 flex items-center justify-center flex-shrink-0">
-                  <Check className="w-2.5 h-2.5 text-primary" />
-                </div>
-                <p className="text-sm leading-snug text-muted-foreground">{bullet}</p>
-              </div>
-            ))}
-          </div>
-
-          {/* Phone Placeholder */}
-          <div className="flex justify-center">
-            <PhonePlaceholder label="Hero app screen" size="lg" />
           </div>
         </div>
       </div>

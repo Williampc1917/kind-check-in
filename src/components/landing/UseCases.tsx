@@ -59,7 +59,8 @@ const SCENES: SceneItem[] = [
 ];
 
 const SECTION_COPY = {
-  title: "Backup for the moments you don't overthink",
+  eyebrow: "Use cases",
+  title: "For the in-between moments",
   subtitle: "From late rides to quick errands, SafeCheck quietly has your back.",
 };
 
@@ -81,7 +82,7 @@ interface SceneCardProps {
 
 const SceneCard = ({ scene, index }: SceneCardProps) => (
   <div
-    className="min-w-[260px] sm:min-w-[280px] h-[340px] sm:h-[380px] rounded-3xl overflow-hidden relative group flex-shrink-0 snap-center"
+    className="relative h-[340px] min-w-[260px] flex-shrink-0 snap-center overflow-hidden rounded-3xl sm:h-[380px] sm:min-w-[280px] group"
     style={{ animationDelay: `${index * 100}ms` }}
   >
     {/* Card visual */}
@@ -117,7 +118,9 @@ const SceneCard = ({ scene, index }: SceneCardProps) => (
 
     {/* Title overlay at bottom */}
     <div className="absolute bottom-0 left-0 right-0 p-5 bg-gradient-to-t from-black/70 via-black/30 to-transparent">
-      <h3 className="text-lg font-semibold text-white">{scene.title}</h3>
+      <h3 className="text-[1.35rem] font-semibold tracking-[-0.02em] text-white">
+        {scene.title}
+      </h3>
     </div>
   </div>
 );
@@ -139,11 +142,14 @@ const UseCases = () => {
     <section className="py-16 md:py-24 bg-secondary overflow-hidden">
       <div className="container mx-auto px-4">
         {/* Header */}
-        <div className="text-center mb-10 md:mb-14">
-          <h2 className="text-2xl md:text-3xl lg:text-4xl font-semibold mb-3">
+        <div className="mx-auto mb-10 max-w-4xl text-center md:mb-14">
+          <div className="mb-4 text-[0.72rem] font-semibold uppercase tracking-[0.24em] text-slate-500">
+            {SECTION_COPY.eyebrow}
+          </div>
+          <h2 className="mx-auto mb-4 max-w-[16ch] text-4xl font-semibold leading-[1.02] tracking-[-0.045em] text-slate-900 md:text-5xl lg:text-[3.5rem]">
             {SECTION_COPY.title}
           </h2>
-          <p className="text-muted-foreground max-w-xl mx-auto">
+          <p className="mx-auto max-w-2xl text-base leading-7 text-slate-600 md:text-lg md:leading-8">
             {SECTION_COPY.subtitle}
           </p>
         </div>
@@ -154,7 +160,7 @@ const UseCases = () => {
           <Button
             variant="outline"
             size="icon"
-            className="absolute left-0 top-1/2 -translate-y-1/2 -translate-x-2 z-10 hidden md:flex h-10 w-10 rounded-full bg-background/80 backdrop-blur-sm shadow-lg border-border/50 hover:bg-background"
+            className="absolute left-0 top-1/2 z-10 hidden h-10 w-10 -translate-x-2 -translate-y-1/2 rounded-full border-white/70 bg-white/80 shadow-[0_12px_30px_-18px_rgba(15,23,42,0.35)] backdrop-blur-sm hover:bg-white md:flex"
             onClick={() => scroll("left")}
           >
             <ChevronLeft className="h-5 w-5" />
@@ -163,7 +169,7 @@ const UseCases = () => {
           <Button
             variant="outline"
             size="icon"
-            className="absolute right-0 top-1/2 -translate-y-1/2 translate-x-2 z-10 hidden md:flex h-10 w-10 rounded-full bg-background/80 backdrop-blur-sm shadow-lg border-border/50 hover:bg-background"
+            className="absolute right-0 top-1/2 z-10 hidden h-10 w-10 translate-x-2 -translate-y-1/2 rounded-full border-white/70 bg-white/80 shadow-[0_12px_30px_-18px_rgba(15,23,42,0.35)] backdrop-blur-sm hover:bg-white md:flex"
             onClick={() => scroll("right")}
           >
             <ChevronRight className="h-5 w-5" />

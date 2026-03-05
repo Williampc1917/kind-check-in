@@ -216,10 +216,15 @@ const HowItWorks = () => {
     <section id="how-it-works" className="py-16 md:py-24 bg-secondary">
       <div className="container mx-auto px-4">
         {/* Header */}
-        <div className="text-center mb-12 md:mb-16">
-          <h2 className="text-3xl md:text-4xl font-semibold mb-4">How it works</h2>
-          <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-            Four simple steps to peace of mind. No complicated setup required.
+        <div className="mx-auto mb-14 max-w-4xl text-center md:mb-20">
+          <div className="mb-4 text-[0.72rem] font-semibold uppercase tracking-[0.24em] text-slate-500">
+            How it works
+          </div>
+          <h2 className="mx-auto mb-4 max-w-[14ch] text-4xl font-semibold leading-[1.02] tracking-[-0.045em] text-slate-900 md:text-5xl lg:text-[3.5rem]">
+            A simple check-in, backed by a plan
+          </h2>
+          <p className="mx-auto max-w-2xl text-base leading-7 text-slate-600 md:text-lg md:leading-8">
+            Start a timer, go about your day, and confirm when you&apos;re safe. If you don&apos;t, your backup plan takes over.
           </p>
         </div>
 
@@ -230,22 +235,22 @@ const HowItWorks = () => {
             return (
               <div
                 key={step.number}
-                className="relative isolate grid overflow-hidden rounded-[2rem] bg-[#f6f7f8] px-6 pb-8 pt-8 shadow-[0_24px_60px_-42px_rgba(15,23,42,0.28)] md:min-h-[420px] md:grid-cols-[minmax(0,1fr)_minmax(320px,420px)] md:items-end md:gap-8 md:px-10 md:pb-10 md:pt-10 lg:min-h-[460px] lg:grid-cols-[minmax(0,1fr)_minmax(360px,460px)] lg:px-12"
+                className="relative isolate grid overflow-hidden rounded-[2rem] bg-[#f6f7f8] px-6 py-8 shadow-[0_24px_60px_-42px_rgba(15,23,42,0.28)] md:min-h-[420px] md:grid-cols-[minmax(0,1fr)_minmax(320px,420px)] md:items-center md:gap-8 md:px-10 md:py-10 lg:min-h-[460px] lg:grid-cols-[minmax(0,1fr)_minmax(360px,460px)] lg:px-12"
               >
                 <div className="pointer-events-none absolute inset-0">
                   <div className="absolute inset-x-0 bottom-0 h-28 bg-gradient-to-t from-white/40 to-transparent" />
                 </div>
 
                 <div
-                  className={`relative z-10 max-w-md self-end md:pb-4 ${mediaOnLeft ? "md:col-start-2" : ""}`}
+                  className={`relative z-10 max-w-lg self-center ${mediaOnLeft ? "md:col-start-2" : ""}`}
                 >
                   <div className="mb-4 text-[0.72rem] font-semibold uppercase tracking-[0.24em] text-slate-500">
                     Step {step.number}
                   </div>
-                  <h3 className="mb-4 max-w-[13ch] text-3xl font-semibold leading-[1.04] tracking-[-0.035em] text-slate-900 md:text-4xl lg:text-[3.25rem]">
+                  <h3 className="mb-4 max-w-[12ch] text-3xl font-semibold leading-[1.03] tracking-[-0.04em] text-slate-900 md:text-[2.75rem] lg:text-[3rem]">
                     {step.title}
                   </h3>
-                  <p className="max-w-[34ch] text-base leading-7 text-slate-600 md:text-lg md:leading-8">
+                  <p className="max-w-[32ch] text-base leading-7 text-slate-600 md:text-[1.125rem] md:leading-8">
                     {step.description}
                   </p>
                 </div>
