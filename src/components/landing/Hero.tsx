@@ -1,15 +1,15 @@
 import { Button } from "@/components/ui/button";
 import { Check, Shield, Clock, Bell } from "lucide-react";
-import { motion } from "framer-motion";
+import { motion, type Transition } from "framer-motion";
 
 const floatingAnimation = (delay: number, duration: number, y: number) => ({
   y: [0, y, 0],
   transition: {
     duration,
     repeat: Infinity,
-    ease: "easeInOut",
+    ease: "easeInOut" as const,
     delay,
-  },
+  } satisfies Transition,
 });
 
 const Hero = () => {
