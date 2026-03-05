@@ -1,0 +1,316 @@
+/* ── Phone wrapper ── */
+.hiw-card2-wrap {
+  width: 100%;
+  max-width: 300px;
+  margin-inline: auto;
+}
+
+.hiw-card2-phone {
+  position: relative;
+  height: 480px;
+  transform: scaleY(1.12);
+  transform-origin: bottom;
+  border-radius: 44px;
+  overflow: hidden;
+  box-shadow: 0 24px 48px rgba(0, 0, 0, 0.35);
+  -webkit-mask-image: linear-gradient(
+    to bottom,
+    transparent 0%,
+    transparent 14%,
+    rgba(0, 0, 0, 0.35) 32%,
+    rgba(0, 0, 0, 1) 52%,
+    rgba(0, 0, 0, 1) 100%
+  );
+  mask-image: linear-gradient(
+    to bottom,
+    transparent 0%,
+    transparent 14%,
+    rgba(0, 0, 0, 0.35) 32%,
+    rgba(0, 0, 0, 1) 52%,
+    rgba(0, 0, 0, 1) 100%
+  );
+}
+
+.hiw-card2-phone::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: 44px;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  pointer-events: none;
+  -webkit-mask-image: linear-gradient(
+    to bottom,
+    transparent 0%,
+    transparent 40%,
+    rgba(0, 0, 0, 1) 62%,
+    rgba(0, 0, 0, 1) 100%
+  );
+  mask-image: linear-gradient(
+    to bottom,
+    transparent 0%,
+    transparent 40%,
+    rgba(0, 0, 0, 1) 62%,
+    rgba(0, 0, 0, 1) 100%
+  );
+}
+
+.hiw-card2-phone-shell {
+  position: absolute;
+  inset: 0;
+  background: #000;
+  border-radius: 44px;
+}
+
+.hiw-card2-phone-screen {
+  position: absolute;
+  inset: 8px;
+  border-radius: 36px;
+  overflow: hidden;
+  transform: scaleY(0.8620689655);
+  transform-origin: bottom;
+}
+
+/* ── Wallpaper ── */
+.hiw-card2-wallpaper {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(145deg, #93e3e8 0%, #22a4e1 48%, #0f4ebf 100%);
+}
+
+.hiw-card2-bloom {
+  position: absolute;
+  width: 290px;
+  height: 290px;
+  border-radius: 999px;
+  left: -34px;
+  top: -96px;
+  filter: blur(40px);
+  background: rgba(255, 255, 255, 0.36);
+}
+
+.hiw-card2-plate {
+  position: absolute;
+  width: 310px;
+  height: 250px;
+  border-radius: 56px;
+  left: -32px;
+  bottom: 56px;
+  filter: blur(28px);
+  background: rgba(15, 71, 189, 0.58);
+}
+
+.hiw-card2-bottom-shade {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to bottom, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0.12) 100%);
+}
+
+/* ── Live activity positioning ── */
+.hiw-card2-live-activity-wrap {
+  position: absolute;
+  left: 10px;
+  right: 10px;
+  bottom: 24px;
+}
+
+/* ── Active monitoring card ── */
+.hiw-card2-live-activity {
+  border-radius: 20px;
+  padding: 12px;
+  background: rgba(255, 255, 255, 0.97);
+  border: 1px solid rgba(0, 0, 0, 0.06);
+  box-shadow:
+    0 8px 20px rgba(34, 197, 94, 0.07),
+    0 4px 12px rgba(0, 0, 0, 0.08);
+}
+
+/* ── Brand icon row (sits alone top-left) ── */
+.hiw-card2-brand-dot {
+  width: 18px;
+  height: 18px;
+  border-radius: 999px;
+  display: grid;
+  place-items: center;
+  font-size: 10px;
+  font-weight: 700;
+  color: #f0fdf4;
+  background: radial-gradient(circle at 30% 30%, #8cf8bb, #22c55e 65%);
+  box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.28);
+  margin-bottom: 2px;
+}
+
+/* ── Title row: "X min left" + buttons side by side ── */
+.hiw-card2-activity-top {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.hiw-card2-title {
+  margin: 0;
+  font-size: 19px;
+  line-height: 1.1;
+  font-weight: 600;
+  color: #111827;
+  letter-spacing: -0.02em;
+  white-space: nowrap;
+}
+
+/* Right side: buttons */
+.hiw-card2-actions {
+  margin-left: auto;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  flex-shrink: 0;
+}
+
+/* ── Pill buttons ── */
+.hiw-card2-pill {
+  border: 0;
+  border-radius: 999px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 3px;
+  height: 32px;
+  font-size: 12.5px;
+  font-weight: 600;
+  line-height: 1;
+  cursor: default;
+  transition: transform 120ms ease-out, box-shadow 220ms ease;
+  transform: scale(1);
+  white-space: nowrap;
+}
+
+.hiw-card2-pill-safe {
+  padding: 0 12px;
+  color: #fff;
+  background: #22c55e;
+}
+
+.hiw-card2-pill-extend {
+  padding: 0 9px;
+  color: #111827;
+  background: #facc15;
+}
+
+.hiw-card2-timer-icon {
+  font-size: 11px;
+  line-height: 1;
+}
+
+.hiw-card2-pill.is-pulsing {
+  animation: hiw-card2-pulse 680ms ease-in-out infinite;
+}
+
+.hiw-card2-pill-safe.is-pulsing {
+  box-shadow: 0 0 0 8px rgba(34, 197, 94, 0.18);
+}
+
+.hiw-card2-pill-extend.is-pulsing {
+  box-shadow: 0 0 0 8px rgba(250, 204, 21, 0.18);
+}
+
+.hiw-card2-pill.is-pressed {
+  transform: scale(0.9);
+}
+
+/* ── Subtitle & progress ── */
+.hiw-card2-subtitle {
+  margin: 6px 0 0;
+  font-size: 11px;
+  color: #6b7280;
+}
+
+.hiw-card2-progress-track {
+  margin-top: 6px;
+  width: 100%;
+  height: 5px;
+  border-radius: 999px;
+  overflow: hidden;
+  background: #e5e7eb;
+}
+
+.hiw-card2-progress-fill {
+  height: 100%;
+  border-radius: 999px;
+  background: #22c55e;
+  transition: width 900ms ease-in-out;
+}
+
+/* ── Marked safe state ── */
+.hiw-card2-live-activity-safe {
+  text-align: center;
+  padding: 14px 12px;
+}
+
+.hiw-card2-safe-icon {
+  width: 26px;
+  height: 26px;
+  margin: 0 auto;
+  border-radius: 999px;
+  display: grid;
+  place-items: center;
+  font-size: 14px;
+  line-height: 1;
+  color: #fff;
+  background: #22c55e;
+}
+
+.hiw-card2-safe-title {
+  margin: 5px 0 0;
+  font-size: 13px;
+  line-height: 1.2;
+  font-weight: 600;
+  color: #0f172a;
+}
+
+.hiw-card2-safe-subtitle {
+  margin: 2px 0 0;
+  font-size: 11px;
+  color: #667085;
+}
+
+/* ── Home indicator ── */
+.hiw-card2-home-indicator {
+  position: absolute;
+  left: 50%;
+  bottom: 8px;
+  width: 122px;
+  height: 5px;
+  transform: translateX(-50%);
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.58);
+}
+
+/* ── Animations ── */
+@keyframes hiw-card2-pulse {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.06);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+@media (max-width: 640px) {
+  .hiw-card2-wrap {
+    max-width: 262px;
+  }
+
+  .hiw-card2-phone {
+    height: 440px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .hiw-card2-pill,
+  .hiw-card2-progress-fill {
+    transition: none;
+    animation: none;
+  }
+}
