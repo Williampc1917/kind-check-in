@@ -1,5 +1,4 @@
 import PhonePlaceholder from "./PhonePlaceholder";
-import LiveActivityPhonePreview from "./LiveActivityPhonePreview";
 
 const HowItWorks = () => {
   const steps = [
@@ -14,10 +13,10 @@ const HowItWorks = () => {
     {
       number: 2,
       title: "Start and go live your day",
-      description: "Your check-in runs as a Live Activity on your lock screen and Dynamic Island — always visible, never buried in the app.",
+      description: "Your timer runs quietly in the background while you commute, work out, or head home.",
       placeholder: "Timer running screen",
       featureBadge: "Lock screen & Dynamic Island",
-      featureDetail: "See your countdown, check in, or extend — all without unlocking your phone",
+      featureDetail: "One tap from your lock screen, no app unlock needed",
     },
     {
       number: 3,
@@ -53,6 +52,38 @@ const HowItWorks = () => {
           {steps.map((step, index) => {
             const isReversed = index % 2 === 1;
 
+            if (step.number === 2) {
+              return (
+                <div
+                  key={step.number}
+                  className="rounded-[32px] border border-border/60 bg-[#f5f5f7] px-6 py-12 md:px-14 md:py-16"
+                >
+                  <div className="mx-auto max-w-3xl text-center">
+                    <p className="mb-4 text-xs font-semibold uppercase tracking-[0.2em] text-primary/80 md:text-sm">
+                      Step 2
+                    </p>
+                    <h3 className="text-3xl font-semibold tracking-tight md:text-5xl">
+                      Go live and move freely
+                    </h3>
+                    <p className="mx-auto mt-4 max-w-2xl text-base leading-relaxed text-muted-foreground md:text-lg">
+                      Your check-in runs quietly in the background, with lock screen updates ready
+                      when you need them.
+                    </p>
+                  </div>
+
+                  <div className="mt-10 flex justify-center md:mt-14">
+                    <div className="w-full max-w-lg rounded-[28px] border border-white/70 bg-gradient-to-b from-white to-[#eceff3] p-2 shadow-[0_30px_80px_-40px_rgba(15,23,42,0.45)] md:p-3">
+                      <img
+                        src="/live-acitvity-square-crop.png"
+                        alt="Live check-in status preview"
+                        className="mx-auto block w-[90%] rounded-[20px] md:w-[88%]"
+                      />
+                    </div>
+                  </div>
+                </div>
+              );
+            }
+
             return (
               <div
                 key={step.number}
@@ -60,11 +91,7 @@ const HowItWorks = () => {
               >
                 <div className={isReversed ? "md:order-2" : ""}>
                   <div className="flex justify-center">
-                    {step.number === 2 ? (
-                      <LiveActivityPhonePreview />
-                    ) : (
-                      <PhonePlaceholder label={step.placeholder} size="md" />
-                    )}
+                    <PhonePlaceholder label={step.placeholder} size="md" />
                   </div>
                 </div>
 
