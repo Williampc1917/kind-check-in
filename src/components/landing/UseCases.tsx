@@ -1,42 +1,77 @@
-import { useRef } from "react";
+import { type CSSProperties, useRef } from "react";
 import { ChevronLeft, ChevronRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
 
 type SceneItem = {
   title: string;
-  illustrationBrief: string;
+  illustrationBrief?: string;
+  image?: {
+    src: string;
+    webp?: string;
+    alt: string;
+  };
 };
 
 const SCENES: SceneItem[] = [
   {
-    title: "Late-night commute",
-    illustrationBrief: "Person walking under streetlights, headphones on, relaxed posture",
+    title: "Yoga Class",
+    image: {
+      src: "/moments/backup-yoga-mockup.jpg",
+      webp: "/moments/backup-yoga-mockup.webp",
+      alt: "iPhone mockup with workout gear for yoga practice",
+    },
   },
   {
-    title: "Gym session",
-    illustrationBrief: "Person mid-workout, phone in locker implied",
+    title: "At the Gym",
+    image: {
+      src: "/moments/Mockuuups iPhone mockup in the gym.jpeg",
+      alt: "iPhone mockup in the gym",
+    },
   },
   {
-    title: "Date night",
-    illustrationBrief: "Two people at cafe table, warm ambient lighting",
+    title: "On a Park Bench",
+    image: {
+      src: "/moments/Mockuuups iPhone mockup on the outdoor bench.jpeg",
+      alt: "iPhone mockup on an outdoor bench",
+    },
   },
   {
-    title: "Rideshare",
-    illustrationBrief: "Person in back seat, city buildings passing by",
+    title: "Out and About",
+    image: {
+      src: "/moments/Mockuuups Woman in sweater holding an iPhone mockup.jpeg",
+      alt: "Woman in sweater holding an iPhone mockup",
+    },
   },
   {
-    title: "Walking home",
-    illustrationBrief: "Person on quiet residential street, peaceful night",
+    title: "Date Night",
+    image: {
+      src: "/moments/Mockuuups iPhone mockup held by woman in the lounge setting.jpeg",
+      alt: "Woman holding an iPhone mockup in a lounge setting",
+    },
   },
   {
-    title: "Quick errand",
-    illustrationBrief: "Person at coffee shop counter, casual vibe",
+    title: "Walking the Dog",
+    image: {
+      src: "/moments/Mockuuups Woman holding an iPhone while scratching a dog in autumn mockup.jpeg",
+      alt: "Woman holding an iPhone while scratching a dog in autumn",
+    },
   },
 ];
 
 const SECTION_COPY = {
   title: "Backup for the moments you don't overthink",
   subtitle: "From late rides to quick errands, SafeCheck quietly has your back.",
+};
+
+const EDGE_FADE_MASK: CSSProperties = {
+  WebkitMaskImage:
+    "linear-gradient(to right, transparent 0%, black 6%, black 94%, transparent 100%)",
+  maskImage:
+    "linear-gradient(to right, transparent 0%, black 6%, black 94%, transparent 100%)",
+  WebkitMaskRepeat: "no-repeat",
+  maskRepeat: "no-repeat",
+  WebkitMaskSize: "100% 100%",
+  maskSize: "100% 100%",
 };
 
 interface SceneCardProps {
@@ -49,27 +84,41 @@ const SceneCard = ({ scene, index }: SceneCardProps) => (
     className="min-w-[260px] sm:min-w-[280px] h-[340px] sm:h-[380px] rounded-3xl overflow-hidden relative group flex-shrink-0 snap-center"
     style={{ animationDelay: `${index * 100}ms` }}
   >
-    {/* Gradient background */}
-    <div className="absolute inset-0 bg-gradient-to-br from-primary/5 via-primary/10 to-primary/20 transition-all duration-500 group-hover:from-primary/10 group-hover:to-primary/25" />
-    
-    {/* Illustration placeholder */}
-    <div className="absolute inset-0 flex items-center justify-center p-6">
-      <div className="text-center">
-        <div className="w-28 h-36 sm:w-32 sm:h-40 mx-auto rounded-2xl border-2 border-dashed border-primary/30 flex items-center justify-center p-3 bg-background/50 backdrop-blur-sm">
-          <span className="text-[10px] sm:text-xs text-muted-foreground text-center leading-relaxed">
-            {scene.illustrationBrief}
-          </span>
+    {/* Card visual */}
+    <div className="absolute inset-0">
+      {scene.image ? (
+        <picture>
+          {scene.image.webp && <source srcSet={scene.image.webp} type="image/webp" />}
+          <img
+            src={scene.image.src}
+            alt={scene.image.alt}
+            loading="lazy"
+            decoding="async"
+            className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+          />
+        </picture>
+      ) : (
+        <div className="absolute inset-0 flex items-center justify-center p-6">
+          <div className="text-center">
+            <div className="w-28 h-36 sm:w-32 sm:h-40 mx-auto rounded-2xl border-2 border-dashed border-primary/30 flex items-center justify-center p-3 bg-background/50 backdrop-blur-sm">
+              <span className="text-[10px] sm:text-xs text-muted-foreground text-center leading-relaxed">
+                {scene.illustrationBrief ?? "Scene concept preview"}
+              </span>
+            </div>
+          </div>
         </div>
-      </div>
+      )}
     </div>
-    
+
+    {/* Darken photo slightly for readable title text */}
+    {scene.image && (
+      <div className="absolute inset-0 bg-gradient-to-t from-black/55 via-black/10 to-transparent" />
+    )}
+
     {/* Title overlay at bottom */}
-    <div className="absolute bottom-0 left-0 right-0 p-5 bg-gradient-to-t from-background via-background/80 to-transparent">
-      <h3 className="text-lg font-semibold text-foreground">{scene.title}</h3>
+    <div className="absolute bottom-0 left-0 right-0 p-5 bg-gradient-to-t from-black/70 via-black/30 to-transparent">
+      <h3 className="text-lg font-semibold text-white">{scene.title}</h3>
     </div>
-    
-    {/* Subtle hover scale effect */}
-    <div className="absolute inset-0 transition-transform duration-300 group-hover:scale-[1.02]" />
   </div>
 );
 
@@ -120,15 +169,11 @@ const UseCases = () => {
             <ChevronRight className="h-5 w-5" />
           </Button>
 
-          {/* Fade edges */}
-          <div className="absolute left-0 top-0 bottom-0 w-8 bg-gradient-to-r from-secondary to-transparent z-[5] pointer-events-none" />
-          <div className="absolute right-0 top-0 bottom-0 w-8 bg-gradient-to-l from-secondary to-transparent z-[5] pointer-events-none" />
-
           {/* Horizontal scroll container */}
           <div
             ref={scrollRef}
             className="flex gap-4 md:gap-6 overflow-x-auto scrollbar-hide snap-x snap-mandatory pb-4 px-4 -mx-4"
-            style={{ scrollbarWidth: "none", msOverflowStyle: "none" }}
+            style={{ ...EDGE_FADE_MASK, scrollbarWidth: "none", msOverflowStyle: "none" }}
           >
             {SCENES.map((scene, index) => (
               <SceneCard key={scene.title} scene={scene} index={index} />
