@@ -213,7 +213,10 @@ const HowItWorks = () => {
   };
 
   return (
-    <section id="how-it-works" className="py-16 md:py-24 bg-secondary">
+    <section
+      id="how-it-works"
+      className="relative z-10 bg-secondary py-16 md:py-24 lg:-mt-24 lg:pt-[9rem] xl:-mt-28 xl:pt-[10rem]"
+    >
       <div className="container mx-auto px-4">
         {/* Header */}
         <div className="mx-auto mb-14 max-w-4xl text-center md:mb-20">
