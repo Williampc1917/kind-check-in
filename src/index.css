@@ -25,6 +25,19 @@
   }
 }
 
+@keyframes hero-glow-pulse {
+  0%,
+  100% {
+    opacity: var(--glow-base, 0.07);
+    transform: scale(1);
+  }
+
+  50% {
+    opacity: var(--glow-peak, 0.12);
+    transform: scale(1.04);
+  }
+}
+
 /* SafeCheck Landing Page Design System
    Apple-inspired minimal aesthetic with soft sage accent
    All colors are HSL for proper theming
@@ -38,6 +51,10 @@
 
   .hero-float {
     animation: hero-float 6s ease-in-out infinite;
+  }
+
+  .hero-glow-pulse {
+    animation: hero-glow-pulse 4s ease-in-out infinite;
   }
 }
 
