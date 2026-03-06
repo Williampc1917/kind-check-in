@@ -52,6 +52,10 @@
   .hero-float {
     animation: hero-float 6s ease-in-out infinite;
   }
+
+  .hero-glow-pulse {
+    animation: hero-glow-pulse 4s ease-in-out infinite;
+  }
 }
 
 @layer base {
