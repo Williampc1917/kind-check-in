@@ -13,30 +13,30 @@ const Hero = () => {
       {/* Ambient background blobs — soft, out of the way */}
       <div className="pointer-events-none absolute inset-0" aria-hidden="true">
         <div
-          className="hero-glow-pulse absolute -left-[12%] -top-[18%] h-[420px] w-[420px] rounded-full blur-[100px] sm:h-[520px] sm:w-[520px]"
+          className="hero-glow-pulse absolute -left-[6%] -top-[10%] h-[380px] w-[380px] rounded-full blur-[120px] sm:h-[460px] sm:w-[460px]"
           style={{
             background: "radial-gradient(circle, hsl(var(--primary)), transparent 70%)",
-            "--glow-base": "0.07",
-            "--glow-peak": "0.12",
+            "--glow-base": "0.045",
+            "--glow-peak": "0.075",
             animationDuration: "5s",
           } as React.CSSProperties}
         />
         <div
-          className="hero-glow-pulse absolute -bottom-[14%] -right-[8%] h-[360px] w-[360px] rounded-full blur-[90px] sm:h-[480px] sm:w-[480px]"
+          className="hero-glow-pulse absolute bottom-[5%] right-[5%] h-[320px] w-[320px] rounded-full blur-[120px] sm:h-[400px] sm:w-[400px]"
           style={{
             background: "radial-gradient(circle, hsl(var(--primary)), transparent 70%)",
-            "--glow-base": "0.05",
-            "--glow-peak": "0.09",
+            "--glow-base": "0.03",
+            "--glow-peak": "0.06",
             animationDelay: "2s",
             animationDuration: "6s",
           } as React.CSSProperties}
         />
         <div
-          className="hero-glow-pulse absolute left-[30%] top-[60%] hidden h-[200px] w-[200px] rounded-full blur-[80px] lg:block"
+          className="hero-glow-pulse absolute left-[30%] top-[55%] hidden h-[180px] w-[180px] rounded-full blur-[100px] lg:block"
           style={{
             background: "radial-gradient(circle, hsl(var(--primary)), transparent 70%)",
-            "--glow-base": "0.04",
-            "--glow-peak": "0.07",
+            "--glow-base": "0.025",
+            "--glow-peak": "0.05",
             animationDelay: "3.5s",
             animationDuration: "7s",
           } as React.CSSProperties}
