@@ -1,5 +1,5 @@
 import { Button } from "@/components/ui/button";
-import { Check, Shield, Clock, Bell } from "lucide-react";
+import { Shield, Clock, Bell } from "lucide-react";
 
 const Hero = () => {
   const scrollToSection = (id: string) => {
@@ -8,12 +8,6 @@ const Hero = () => {
       element.scrollIntoView({ behavior: "smooth" });
     }
   };
-
-  const trustBullets = [
-    "One-tap check-in from your lock screen.",
-    "No live location tracking - ever.",
-    "Alerts only go out if you miss it.",
-  ];
 
   return (
     <section className="relative overflow-hidden bg-background">
@@ -45,8 +39,8 @@ const Hero = () => {
       />
 
       <div className="container mx-auto flex min-h-[calc(100svh-4rem)] items-center px-5 py-8 sm:px-6 sm:py-10 lg:px-8 lg:py-12">
-        <div className="grid w-full items-center gap-8 md:gap-10 lg:grid-cols-[minmax(0,1.02fr)_minmax(360px,0.92fr)] lg:gap-12 xl:gap-16">
-          <div className="mx-auto flex max-w-xl flex-col items-center text-center lg:mx-0 lg:max-w-[36rem] lg:items-start lg:text-left">
+        <div className="grid w-full items-center gap-8 md:gap-10 lg:grid-cols-[minmax(0,1.02fr)_minmax(360px,0.92fr)] lg:items-start lg:gap-12 xl:gap-16">
+          <div className="mx-auto flex max-w-xl flex-col items-center text-center lg:mx-0 lg:mt-[-1.5rem] lg:max-w-[36rem] lg:items-start lg:text-left xl:mt-[-2rem]">
             <h1 className="hero-fade-up max-w-[11ch] text-4xl font-bold leading-[1.02] tracking-[-0.04em] text-foreground sm:text-5xl md:text-6xl lg:text-[4.25rem]">
               Your safety net for everyday moments
             </h1>
@@ -59,39 +53,21 @@ const Hero = () => {
             </p>
 
             <div
-              className="hero-fade-up mt-6 flex max-w-[36rem] flex-wrap items-center justify-center gap-2.5 lg:justify-start"
+              className="hero-fade-up mt-7 flex w-full max-w-sm flex-col gap-3 sm:max-w-none sm:w-auto sm:flex-row sm:flex-wrap lg:mt-8 lg:gap-4 lg:justify-start"
               style={{ animationDelay: "250ms" }}
-            >
-              {trustBullets.map((bullet, index) => (
-                <div
-                  key={index}
-                  className="hero-fade-up inline-flex items-center gap-2 rounded-full border border-border/80 bg-secondary px-3.5 py-2 text-xs font-medium text-foreground/80 shadow-sm sm:px-4 sm:text-sm"
-                  style={{ animationDelay: `${350 + index * 80}ms` }}
-                >
-                  <div className="flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-primary/15">
-                    <Check className="h-3 w-3 text-primary" />
-                  </div>
-                  <p>{bullet}</p>
-                </div>
-              ))}
-            </div>
-
-            <div
-              className="hero-fade-up mt-6 flex w-full max-w-sm flex-col gap-3 sm:max-w-none sm:w-auto sm:flex-row lg:justify-start"
-              style={{ animationDelay: "450ms" }}
             >
               <Button
                 onClick={() => scrollToSection("waitlist")}
                 size="lg"
-                className="rounded-xl px-8 text-base"
+                className="min-w-[12rem] rounded-xl px-8 text-base shadow-[0_16px_32px_-20px_hsl(var(--primary)/0.75)]"
               >
                 Join the waitlist
               </Button>
               <Button
                 onClick={() => scrollToSection("how-it-works")}
-                variant="ghost"
+                variant="outline"
                 size="lg"
-                className="rounded-xl text-base"
+                className="min-w-[12rem] rounded-xl border-border/80 bg-background/90 text-base shadow-sm hover:bg-secondary"
               >
                 See how it works
               </Button>
