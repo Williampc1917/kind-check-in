@@ -12,31 +12,34 @@ const Hero = () => {
     <section className="relative min-h-[calc(100svh-4rem)] overflow-hidden bg-background">
       {/* Ambient background blobs — soft, out of the way */}
       <div className="pointer-events-none absolute inset-0" aria-hidden="true">
-        {/* Top-left warm glow */}
         <div
-          className="hero-float absolute -left-[12%] -top-[18%] h-[420px] w-[420px] rounded-full opacity-[0.07] blur-[100px] sm:h-[520px] sm:w-[520px]"
+          className="hero-glow-pulse absolute -left-[12%] -top-[18%] h-[420px] w-[420px] rounded-full blur-[100px] sm:h-[520px] sm:w-[520px]"
           style={{
             background: "radial-gradient(circle, hsl(var(--primary)), transparent 70%)",
-            animationDuration: "8s",
-          }}
+            "--glow-base": "0.07",
+            "--glow-peak": "0.12",
+            animationDuration: "5s",
+          } as React.CSSProperties}
         />
-        {/* Bottom-right accent glow */}
         <div
-          className="hero-float absolute -bottom-[14%] -right-[8%] h-[360px] w-[360px] rounded-full opacity-[0.05] blur-[90px] sm:h-[480px] sm:w-[480px]"
+          className="hero-glow-pulse absolute -bottom-[14%] -right-[8%] h-[360px] w-[360px] rounded-full blur-[90px] sm:h-[480px] sm:w-[480px]"
           style={{
             background: "radial-gradient(circle, hsl(var(--primary)), transparent 70%)",
-            animationDelay: "3s",
-            animationDuration: "10s",
-          }}
+            "--glow-base": "0.05",
+            "--glow-peak": "0.09",
+            animationDelay: "2s",
+            animationDuration: "6s",
+          } as React.CSSProperties}
         />
-        {/* Subtle center dot */}
         <div
-          className="hero-float absolute left-[30%] top-[60%] hidden h-[200px] w-[200px] rounded-full opacity-[0.04] blur-[80px] lg:block"
+          className="hero-glow-pulse absolute left-[30%] top-[60%] hidden h-[200px] w-[200px] rounded-full blur-[80px] lg:block"
           style={{
             background: "radial-gradient(circle, hsl(var(--primary)), transparent 70%)",
-            animationDelay: "5s",
-            animationDuration: "12s",
-          }}
+            "--glow-base": "0.04",
+            "--glow-peak": "0.07",
+            animationDelay: "3.5s",
+            animationDuration: "7s",
+          } as React.CSSProperties}
         />
       </div>
 
