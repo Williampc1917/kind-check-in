@@ -1,5 +1,4 @@
 import { Button } from "@/components/ui/button";
-import { Shield, Clock, Bell } from "lucide-react";
 
 const Hero = () => {
   const scrollToSection = (id: string) => {
@@ -11,35 +10,37 @@ const Hero = () => {
 
   return (
     <section className="relative min-h-[calc(100svh-4rem)] overflow-hidden bg-background">
-      {/* Floating decorative icons */}
-      <div
-        className="hero-float absolute left-[5%] top-20 hidden h-11 w-11 items-center justify-center rounded-2xl bg-primary/10 text-primary xl:flex"
-        style={{ animationDuration: "6s" }}
-      >
-        <Shield className="h-5 w-5" />
+      {/* Ambient background blobs — soft, out of the way */}
+      <div className="pointer-events-none absolute inset-0" aria-hidden="true">
+        {/* Top-left warm glow */}
+        <div
+          className="hero-float absolute -left-[12%] -top-[18%] h-[420px] w-[420px] rounded-full opacity-[0.07] blur-[100px] sm:h-[520px] sm:w-[520px]"
+          style={{
+            background: "radial-gradient(circle, hsl(var(--primary)), transparent 70%)",
+            animationDuration: "8s",
+          }}
+        />
+        {/* Bottom-right accent glow */}
+        <div
+          className="hero-float absolute -bottom-[14%] -right-[8%] h-[360px] w-[360px] rounded-full opacity-[0.05] blur-[90px] sm:h-[480px] sm:w-[480px]"
+          style={{
+            background: "radial-gradient(circle, hsl(var(--primary)), transparent 70%)",
+            animationDelay: "3s",
+            animationDuration: "10s",
+          }}
+        />
+        {/* Subtle center dot */}
+        <div
+          className="hero-float absolute left-[30%] top-[60%] hidden h-[200px] w-[200px] rounded-full opacity-[0.04] blur-[80px] lg:block"
+          style={{
+            background: "radial-gradient(circle, hsl(var(--primary)), transparent 70%)",
+            animationDelay: "5s",
+            animationDuration: "12s",
+          }}
+        />
       </div>
-      <div
-        className="hero-float absolute right-[52%] top-16 hidden h-10 w-10 items-center justify-center rounded-xl bg-primary/10 text-primary/70 xl:flex"
-        style={{ animationDelay: "1.5s", animationDuration: "7s" }}
-      >
-        <Clock className="h-4 w-4" />
-      </div>
-      <div
-        className="hero-float absolute bottom-24 left-[9%] hidden h-9 w-9 items-center justify-center rounded-xl bg-primary/10 text-primary/60 xl:flex"
-        style={{ animationDelay: "2.5s", animationDuration: "5.5s" }}
-      >
-        <Bell className="h-4 w-4" />
-      </div>
-      <div
-        className="hero-float absolute left-[3%] top-48 hidden h-3 w-3 rounded-full bg-primary/20 xl:block"
-        style={{ animationDelay: "0.8s", animationDuration: "4.5s" }}
-      />
-      <div
-        className="hero-float absolute bottom-36 left-[12%] hidden h-2 w-2 rounded-full bg-primary/15 xl:block"
-        style={{ animationDelay: "3s", animationDuration: "5s" }}
-      />
 
-      {/* Main layout: two-column with image bleeding to viewport edge */}
+      {/* Main layout */}
       <div className="flex min-h-[calc(100svh-4rem)] items-center">
         <div className="container mx-auto px-5 sm:px-6 lg:px-8">
           <div className="grid w-full items-center gap-10 lg:grid-cols-2 lg:gap-0">
@@ -80,17 +81,11 @@ const Hero = () => {
               </div>
             </div>
 
-            {/* Right: Phone image — on lg+ it bleeds to the right viewport edge */}
+            {/* Right: Phone image */}
             <div
               className="hero-fade-up relative mx-auto flex w-full justify-center lg:mx-0 lg:justify-end"
               style={{ animationDelay: "240ms" }}
             >
-              {/* Glow behind phone */}
-              <div className="absolute inset-0 flex items-center justify-center lg:justify-end">
-                <div className="h-[60%] w-[60%] rounded-full bg-primary/8 blur-[80px]" />
-              </div>
-
-              {/* Image wrapper: on lg+, overflow is visible and image shifts right to bleed */}
               <div className="relative w-full max-w-[300px] sm:max-w-[340px] md:max-w-[380px] lg:max-w-none lg:overflow-visible">
                 <img
                   src="/hero/Mockuuups%20Free%20iPhone%20Hand%20Mockup.webp"
