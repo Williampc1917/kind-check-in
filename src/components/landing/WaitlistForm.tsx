@@ -24,15 +24,15 @@ const WaitlistForm = () => {
 
   if (submitted) {
     return (
-      <section id="waitlist" className="py-16 md:py-24 bg-secondary">
+      <section id="waitlist" className="bg-primary/5 py-20 md:py-28">
         <div className="container mx-auto px-4">
-          <div className="max-w-md mx-auto bg-card rounded-2xl p-8 card-shadow-lg border border-border text-center">
-            <div className="w-16 h-16 rounded-full bg-primary/10 flex items-center justify-center mx-auto mb-6">
+          <div className="mx-auto max-w-md rounded-2xl border border-border bg-card p-8 text-center card-shadow-lg">
+            <div className="mx-auto mb-6 flex h-16 w-16 items-center justify-center rounded-full bg-primary/10">
               <Check className="w-8 h-8 text-primary" />
             </div>
-            <h3 className="text-2xl font-semibold mb-2">You're on the list!</h3>
+            <h3 className="mb-2 text-2xl font-semibold">You&apos;re on the list!</h3>
             <p className="text-muted-foreground">
-              We'll be in touch with updates. No spam, promise.
+              We&apos;ll be in touch with updates. No spam, promise.
             </p>
           </div>
         </div>
@@ -41,23 +41,25 @@ const WaitlistForm = () => {
   }
 
   return (
-    <section id="waitlist" className="py-16 md:py-24 bg-secondary">
+    <section id="waitlist" className="bg-primary/5 py-20 md:py-28">
       <div className="container mx-auto px-4">
-        <div className="max-w-md mx-auto">
-          {/* Header */}
-          <div className="text-center mb-8">
-            <h2 className="text-3xl md:text-4xl font-semibold mb-3">Get early access</h2>
+        <div className="mx-auto max-w-md">
+          <div className="mb-8 text-center">
+            <h2 className="mb-3 text-3xl font-semibold md:text-4xl">
+              Get early access
+            </h2>
             <p className="text-muted-foreground">
               Be the first to know when we launch.
             </p>
           </div>
 
-          {/* Form */}
-          <form onSubmit={handleSubmit} className="bg-card rounded-2xl p-6 md:p-8 card-shadow-lg border border-border">
+          <form
+            onSubmit={handleSubmit}
+            className="rounded-2xl border border-border bg-card p-6 card-shadow-lg md:p-8"
+          >
             <div className="space-y-4">
-              {/* Email */}
               <div>
-                <label htmlFor="email" className="block text-sm font-medium mb-2">
+                <label htmlFor="email" className="mb-2 block text-sm font-medium">
                   Email <span className="text-destructive">*</span>
                 </label>
                 <Input
@@ -66,23 +68,18 @@ const WaitlistForm = () => {
                   placeholder="you@example.com"
                   value={email}
                   onChange={(e) => setEmail(e.target.value)}
-                  className="rounded-xl"
+                  className="h-12 rounded-xl"
                   required
                 />
               </div>
 
-              {/* Error Message */}
-              {error && (
-                <p className="text-sm text-destructive">{error}</p>
-              )}
+              {error && <p className="text-sm text-destructive">{error}</p>}
 
-              {/* Submit Button */}
-              <Button type="submit" className="w-full rounded-xl" size="lg">
+              <Button type="submit" className="h-12 w-full rounded-xl" size="lg">
                 Get early access
               </Button>
 
-              {/* Microcopy */}
-              <p className="text-xs text-center text-muted-foreground">
+              <p className="text-center text-xs text-muted-foreground">
                 No spam. Only product updates.
               </p>
             </div>

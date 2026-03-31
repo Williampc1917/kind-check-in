@@ -10,39 +10,6 @@ const Hero = () => {
 
   return (
     <section className="relative min-h-[calc(100svh-4rem)] overflow-hidden bg-background">
-      {/* Ambient background blobs — soft, out of the way */}
-      <div className="pointer-events-none absolute inset-0" aria-hidden="true">
-        <div
-          className="hero-glow-pulse absolute -left-[6%] -top-[10%] h-[380px] w-[380px] rounded-full blur-[120px] sm:h-[460px] sm:w-[460px]"
-          style={{
-            background: "radial-gradient(circle, hsl(var(--primary)), transparent 70%)",
-            "--glow-base": "0.045",
-            "--glow-peak": "0.075",
-            animationDuration: "5s",
-          } as React.CSSProperties}
-        />
-        <div
-          className="hero-glow-pulse absolute bottom-[5%] right-[5%] h-[320px] w-[320px] rounded-full blur-[120px] sm:h-[400px] sm:w-[400px]"
-          style={{
-            background: "radial-gradient(circle, hsl(var(--primary)), transparent 70%)",
-            "--glow-base": "0.03",
-            "--glow-peak": "0.06",
-            animationDelay: "2s",
-            animationDuration: "6s",
-          } as React.CSSProperties}
-        />
-        <div
-          className="hero-glow-pulse absolute left-[30%] top-[55%] hidden h-[180px] w-[180px] rounded-full blur-[100px] lg:block"
-          style={{
-            background: "radial-gradient(circle, hsl(var(--primary)), transparent 70%)",
-            "--glow-base": "0.025",
-            "--glow-peak": "0.05",
-            animationDelay: "3.5s",
-            animationDuration: "7s",
-          } as React.CSSProperties}
-        />
-      </div>
-
       {/* Main layout */}
       <div className="flex min-h-[calc(100svh-4rem)] items-center">
         <div className="container mx-auto px-5 sm:px-6 lg:px-8">
@@ -93,7 +60,7 @@ const Hero = () => {
                 <img
                   src="/hero/Mockuuups%20Free%20iPhone%20Hand%20Mockup.webp"
                   alt="SafeCheck app preview on a phone held in hand"
-                  className="relative w-full object-contain drop-shadow-[0_24px_56px_rgba(15,23,42,0.14)] lg:w-[115%] lg:max-w-none xl:w-[120%]"
+                  className="relative w-full object-contain drop-shadow-[0_24px_56px_rgba(15,23,42,0.14)] lg:w-[107%] lg:max-w-none xl:w-[112%]"
                 />
               </div>
             </div>

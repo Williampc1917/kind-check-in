@@ -2,7 +2,6 @@ import Navigation from "@/components/landing/Navigation";
 import Hero from "@/components/landing/Hero";
 import HowItWorks from "@/components/landing/HowItWorks";
 import UseCases from "@/components/landing/UseCases";
-import WhatIfImLate from "@/components/landing/WhatIfImLate";
 import WaitlistForm from "@/components/landing/WaitlistForm";
 import FAQ from "@/components/landing/FAQ";
 import FinalCTA from "@/components/landing/FinalCTA";
@@ -16,7 +15,6 @@ const Index = () => {
         <Hero />
         <HowItWorks />
         <UseCases />
-        <WhatIfImLate />
         <WaitlistForm />
         <FAQ />
         <FinalCTA />

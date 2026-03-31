@@ -13,7 +13,7 @@ const FAQ = () => {
     },
     {
       question: "Does it share my live location?",
-      answer: "Never. We only send status updates—whether you're safe or if your timer has expired. Your exact location is never shared with contacts. Privacy is at the core of everything we build.",
+      answer: "Never. We only send status updates, whether you're safe or if your timer has expired. Your exact location is never shared with contacts. Privacy is at the core of everything we build.",
     },
     {
       question: "What happens if I'm just late?",
@@ -21,7 +21,7 @@ const FAQ = () => {
     },
     {
       question: "Can I stop alerts after they start?",
-      answer: "Absolutely. You can tap 'I'm safe' at any point—even after the initial alert. This immediately stops any future escalations and sends your contacts an 'all good' message.",
+      answer: "Absolutely. You can tap 'I'm safe' at any point, even after the initial alert. This immediately stops any future escalations and sends your contacts an 'all good' message.",
     },
     {
       question: "How customizable is escalation?",

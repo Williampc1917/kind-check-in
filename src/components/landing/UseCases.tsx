@@ -1,11 +1,9 @@
-import { type CSSProperties, useRef } from "react";
+import { useRef } from "react";
 import { ChevronLeft, ChevronRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
 
 type SceneItem = {
-  title: string;
-  illustrationBrief?: string;
-  image?: {
+  image: {
     src: string;
     webp?: string;
     alt: string;
@@ -14,7 +12,6 @@ type SceneItem = {
 
 const SCENES: SceneItem[] = [
   {
-    title: "Yoga Class",
     image: {
       src: "/moments/backup-yoga-mockup.jpg",
       webp: "/moments/backup-yoga-mockup.webp",
@@ -22,35 +19,30 @@ const SCENES: SceneItem[] = [
     },
   },
   {
-    title: "At the Gym",
     image: {
       src: "/moments/Mockuuups iPhone mockup in the gym.jpeg",
       alt: "iPhone mockup in the gym",
     },
   },
   {
-    title: "On a Park Bench",
     image: {
       src: "/moments/Mockuuups iPhone mockup on the outdoor bench.jpeg",
       alt: "iPhone mockup on an outdoor bench",
     },
   },
   {
-    title: "Out and About",
     image: {
       src: "/moments/Mockuuups Woman in sweater holding an iPhone mockup.jpeg",
       alt: "Woman in sweater holding an iPhone mockup",
     },
   },
   {
-    title: "Date Night",
     image: {
       src: "/moments/Mockuuups iPhone mockup held by woman in the lounge setting.jpeg",
       alt: "Woman holding an iPhone mockup in a lounge setting",
     },
   },
   {
-    title: "Walking the Dog",
     image: {
       src: "/moments/Mockuuups Woman holding an iPhone while scratching a dog in autumn mockup.jpeg",
       alt: "Woman holding an iPhone while scratching a dog in autumn",
@@ -64,17 +56,6 @@ const SECTION_COPY = {
   subtitle: "From late rides to quick errands, SafeCheck quietly has your back.",
 };
 
-const EDGE_FADE_MASK: CSSProperties = {
-  WebkitMaskImage:
-    "linear-gradient(to right, transparent 0%, black 6%, black 94%, transparent 100%)",
-  maskImage:
-    "linear-gradient(to right, transparent 0%, black 6%, black 94%, transparent 100%)",
-  WebkitMaskRepeat: "no-repeat",
-  maskRepeat: "no-repeat",
-  WebkitMaskSize: "100% 100%",
-  maskSize: "100% 100%",
-};
-
 interface SceneCardProps {
   scene: SceneItem;
   index: number;
@@ -82,46 +63,23 @@ interface SceneCardProps {
 
 const SceneCard = ({ scene, index }: SceneCardProps) => (
   <div
-    className="relative h-[340px] min-w-[260px] flex-shrink-0 snap-center overflow-hidden rounded-3xl sm:h-[380px] sm:min-w-[280px] group"
+    className="group relative h-[340px] min-w-[260px] flex-shrink-0 snap-center overflow-hidden rounded-[2rem] border border-white/70 bg-white/60 shadow-[0_24px_60px_-38px_rgba(15,23,42,0.38)] sm:h-[380px] sm:min-w-[280px]"
     style={{ animationDelay: `${index * 100}ms` }}
   >
-    {/* Card visual */}
     <div className="absolute inset-0">
-      {scene.image ? (
-        <picture>
-          {scene.image.webp && <source srcSet={scene.image.webp} type="image/webp" />}
-          <img
-            src={scene.image.src}
-            alt={scene.image.alt}
-            loading="lazy"
-            decoding="async"
-            className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
-          />
-        </picture>
-      ) : (
-        <div className="absolute inset-0 flex items-center justify-center p-6">
-          <div className="text-center">
-            <div className="w-28 h-36 sm:w-32 sm:h-40 mx-auto rounded-2xl border-2 border-dashed border-primary/30 flex items-center justify-center p-3 bg-background/50 backdrop-blur-sm">
-              <span className="text-[10px] sm:text-xs text-muted-foreground text-center leading-relaxed">
-                {scene.illustrationBrief ?? "Scene concept preview"}
-              </span>
-            </div>
-          </div>
-        </div>
-      )}
+      <picture>
+        {scene.image.webp && <source srcSet={scene.image.webp} type="image/webp" />}
+        <img
+          src={scene.image.src}
+          alt={scene.image.alt}
+          loading="lazy"
+          decoding="async"
+          className="h-full w-full object-cover transition-transform duration-700 group-hover:scale-[1.035]"
+        />
+      </picture>
     </div>
 
-    {/* Darken photo slightly for readable title text */}
-    {scene.image && (
-      <div className="absolute inset-0 bg-gradient-to-t from-black/55 via-black/10 to-transparent" />
-    )}
-
-    {/* Title overlay at bottom */}
-    <div className="absolute bottom-0 left-0 right-0 p-5 bg-gradient-to-t from-black/70 via-black/30 to-transparent">
-      <h3 className="text-[1.35rem] font-semibold tracking-[-0.02em] text-white">
-        {scene.title}
-      </h3>
-    </div>
+    <div className="absolute inset-0 bg-[linear-gradient(180deg,rgba(255,255,255,0.03)_0%,rgba(15,23,42,0.08)_100%)] opacity-80 transition-opacity duration-500 group-hover:opacity-100" />
   </div>
 );
 
@@ -139,7 +97,7 @@ const UseCases = () => {
   };
 
   return (
-    <section className="py-16 md:py-24 bg-secondary overflow-hidden">
+    <section id="use-cases" className="py-16 md:py-24 bg-secondary overflow-hidden">
       <div className="container mx-auto px-4">
         {/* Header */}
         <div className="mx-auto mb-10 max-w-4xl text-center md:mb-14">
@@ -156,33 +114,31 @@ const UseCases = () => {
 
         {/* Scroll container wrapper */}
         <div className="relative">
-          {/* Navigation arrows - hidden on mobile */}
           <Button
             variant="outline"
             size="icon"
-            className="absolute left-0 top-1/2 z-10 hidden h-10 w-10 -translate-x-2 -translate-y-1/2 rounded-full border-white/70 bg-white/80 shadow-[0_12px_30px_-18px_rgba(15,23,42,0.35)] backdrop-blur-sm hover:bg-white md:flex"
+            className="absolute left-3 top-1/2 z-20 hidden h-10 w-10 -translate-y-1/2 rounded-full border-white/70 bg-white/88 shadow-[0_12px_30px_-18px_rgba(15,23,42,0.35)] backdrop-blur-sm hover:bg-white md:flex"
             onClick={() => scroll("left")}
           >
             <ChevronLeft className="h-5 w-5" />
           </Button>
-          
+
           <Button
             variant="outline"
             size="icon"
-            className="absolute right-0 top-1/2 z-10 hidden h-10 w-10 translate-x-2 -translate-y-1/2 rounded-full border-white/70 bg-white/80 shadow-[0_12px_30px_-18px_rgba(15,23,42,0.35)] backdrop-blur-sm hover:bg-white md:flex"
+            className="absolute right-3 top-1/2 z-20 hidden h-10 w-10 -translate-y-1/2 rounded-full border-white/70 bg-white/88 shadow-[0_12px_30px_-18px_rgba(15,23,42,0.35)] backdrop-blur-sm hover:bg-white md:flex"
             onClick={() => scroll("right")}
           >
             <ChevronRight className="h-5 w-5" />
           </Button>
 
-          {/* Horizontal scroll container */}
           <div
             ref={scrollRef}
-            className="flex gap-4 md:gap-6 overflow-x-auto scrollbar-hide snap-x snap-mandatory pb-4 px-4 -mx-4"
-            style={{ ...EDGE_FADE_MASK, scrollbarWidth: "none", msOverflowStyle: "none" }}
+            className="flex gap-4 overflow-x-auto px-4 pb-4 pt-2 scrollbar-hide snap-x snap-mandatory -mx-4 md:gap-6 md:px-10"
+            style={{ scrollbarWidth: "none", msOverflowStyle: "none" }}
           >
             {SCENES.map((scene, index) => (
-              <SceneCard key={scene.title} scene={scene} index={index} />
+              <SceneCard key={scene.image.src} scene={scene} index={index} />
             ))}
           </div>
         </div>
