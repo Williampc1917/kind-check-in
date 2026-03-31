@@ -231,7 +231,7 @@ const HowItWorks = () => {
       description: "Start your check-in and go about your day. When you're ready, everything you need is waiting on your lock screen.",
       media: {
         type: "video",
-        src: "/mock-movies/step2-final-pls.mov",
+        src: `${import.meta.env.BASE_URL}mock-movies/step2-final-pls.mov`,
       },
       mediaSide: "right",
     },
@@ -241,7 +241,7 @@ const HowItWorks = () => {
       description: "When your timer ends, confirm you're safe from your phone in seconds.",
       media: {
         type: "video",
-        src: "/mock-movies/step3-web-mov.mov",
+        src: `${import.meta.env.BASE_URL}mock-movies/step3-web-mov.mov`,
       },
       mediaSide: "left",
     },
@@ -251,7 +251,7 @@ const HowItWorks = () => {
       description: "If you don't check in, trusted contacts get your status alert based on your escalation settings.",
       media: {
         type: "video",
-        src: "/mock-movies/step4-message-web-final-trans.mov",
+        src: `${import.meta.env.BASE_URL}mock-movies/step4-message-web-final-trans.mov`,
         sizeClassName: "max-w-[220px] sm:max-w-[240px] md:max-w-[260px] lg:max-w-[280px]",
         loop: false,
       },

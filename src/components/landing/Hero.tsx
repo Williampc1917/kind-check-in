@@ -58,7 +58,7 @@ const Hero = () => {
             >
               <div className="relative w-full max-w-[300px] sm:max-w-[340px] md:max-w-[380px] lg:max-w-none lg:overflow-visible">
                 <img
-                  src="/hero/Mockuuups%20Free%20iPhone%20Hand%20Mockup.webp"
+                  src={`${import.meta.env.BASE_URL}hero/Mockuuups%20Free%20iPhone%20Hand%20Mockup.webp`}
                   alt="SafeCheck app preview on a phone held in hand"
                   className="relative w-full object-contain drop-shadow-[0_24px_56px_rgba(15,23,42,0.14)] lg:w-[107%] lg:max-w-none xl:w-[112%]"
                 />

@@ -13,38 +13,38 @@ type SceneItem = {
 const SCENES: SceneItem[] = [
   {
     image: {
-      src: "/moments/backup-yoga-mockup.jpg",
-      webp: "/moments/backup-yoga-mockup.webp",
+      src: `${import.meta.env.BASE_URL}moments/backup-yoga-mockup.jpg`,
+      webp: `${import.meta.env.BASE_URL}moments/backup-yoga-mockup.webp`,
       alt: "iPhone mockup with workout gear for yoga practice",
     },
   },
   {
     image: {
-      src: "/moments/Mockuuups iPhone mockup in the gym.jpeg",
+      src: `${import.meta.env.BASE_URL}moments/Mockuuups iPhone mockup in the gym.jpeg`,
       alt: "iPhone mockup in the gym",
     },
   },
   {
     image: {
-      src: "/moments/Mockuuups iPhone mockup on the outdoor bench.jpeg",
+      src: `${import.meta.env.BASE_URL}moments/Mockuuups iPhone mockup on the outdoor bench.jpeg`,
       alt: "iPhone mockup on an outdoor bench",
     },
   },
   {
     image: {
-      src: "/moments/Mockuuups Woman in sweater holding an iPhone mockup.jpeg",
+      src: `${import.meta.env.BASE_URL}moments/Mockuuups Woman in sweater holding an iPhone mockup.jpeg`,
       alt: "Woman in sweater holding an iPhone mockup",
     },
   },
   {
     image: {
-      src: "/moments/Mockuuups iPhone mockup held by woman in the lounge setting.jpeg",
+      src: `${import.meta.env.BASE_URL}moments/Mockuuups iPhone mockup held by woman in the lounge setting.jpeg`,
       alt: "Woman holding an iPhone mockup in a lounge setting",
     },
   },
   {
     image: {
-      src: "/moments/Mockuuups Woman holding an iPhone while scratching a dog in autumn mockup.jpeg",
+      src: `${import.meta.env.BASE_URL}moments/Mockuuups Woman holding an iPhone while scratching a dog in autumn mockup.jpeg`,
       alt: "Woman holding an iPhone while scratching a dog in autumn",
     },
   },
