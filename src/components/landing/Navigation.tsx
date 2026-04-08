@@ -32,7 +32,7 @@ const Navigation = () => {
             onClick={() => scrollToSection("how-it-works")}
             className="text-[0.95rem] font-medium text-muted-foreground transition-colors hover:text-foreground"
           >
-            How it works
+            Experience
           </button>
           <button
             onClick={() => scrollToSection("use-cases")}
@@ -73,7 +73,7 @@ const Navigation = () => {
               onClick={() => scrollToSection("how-it-works")}
               className="py-2 text-left text-sm font-medium text-muted-foreground transition-colors hover:text-foreground"
             >
-              How it works
+              Experience
             </button>
             <button
               onClick={() => scrollToSection("use-cases")}

@@ -46,7 +46,7 @@ const Hero = () => {
                   size="lg"
                   className="min-w-[12rem] rounded-xl border-border/80 bg-background/90 text-base shadow-sm hover:bg-secondary"
                 >
-                  See how it works
+                  See the experience
                 </Button>
               </div>
             </div>
