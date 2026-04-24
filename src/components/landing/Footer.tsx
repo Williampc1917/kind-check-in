@@ -38,6 +38,9 @@ const Footer = () => {
             <Link to="/contact" className="text-muted-foreground transition-colors hover:text-foreground">
               Contact
             </Link>
+            <Link to="/sms-consent" className="text-muted-foreground transition-colors hover:text-foreground">
+              SMS Consent
+            </Link>
           </div>
 
           {/* Social Icons */}
