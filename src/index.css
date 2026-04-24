@@ -5,23 +5,23 @@
 @keyframes hero-fade-up {
   from {
     opacity: 0;
-    transform: translateY(24px);
+    transform: translateY(24px) scale(0.985);
   }
 
   to {
     opacity: 1;
-    transform: translateY(0);
+    transform: translateY(0) scale(1);
   }
 }
 
 @keyframes hero-float {
   0%,
   100% {
-    transform: translateY(0);
+    transform: translate3d(0, 0, 0) rotate(-0.45deg) scale(1);
   }
 
   50% {
-    transform: translateY(-12px);
+    transform: translate3d(0, -6px, 0) rotate(0.45deg) scale(1.004);
   }
 }
 
@@ -29,16 +29,16 @@
   0%,
   100% {
     opacity: var(--glow-base, 0.07);
-    transform: scale(1);
+    transform: scale(1) translate3d(0, 0, 0);
   }
 
   50% {
     opacity: var(--glow-peak, 0.12);
-    transform: scale(1.04);
+    transform: scale(1.06) translate3d(0, -8px, 0);
   }
 }
 
-/* SafeCheck Landing Page Design System
+/* MadeIt Landing Page Design System
    Apple-inspired minimal aesthetic with soft sage accent
    All colors are HSL for proper theming
 */
@@ -47,14 +47,37 @@
   .hero-fade-up {
     opacity: 0;
     animation: hero-fade-up 0.65s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+    will-change: transform, opacity;
   }
 
   .hero-float {
-    animation: hero-float 6s ease-in-out infinite;
+    animation: hero-float 8s ease-in-out infinite;
   }
 
   .hero-glow-pulse {
     animation: hero-glow-pulse 4s ease-in-out infinite;
+  }
+
+  .hero-surface {
+    background:
+      radial-gradient(circle at 14% 18%, hsl(var(--primary) / 0.08), transparent 28%),
+      radial-gradient(circle at 82% 28%, hsl(var(--primary) / 0.09), transparent 30%),
+      linear-gradient(180deg, hsl(var(--background)) 0%, hsl(var(--background-secondary) / 0.46) 100%);
+  }
+
+  .hero-device-stage {
+    isolation: isolate;
+  }
+
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .hero-fade-up,
+  .hero-float,
+  .hero-glow-pulse {
+    animation: none !important;
+    opacity: 1 !important;
+    transform: none !important;
   }
 }
 

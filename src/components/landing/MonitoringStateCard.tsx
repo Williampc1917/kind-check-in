@@ -107,7 +107,7 @@ const ActivityCard = ({
     >
       {/* Logo icon */}
       <div className="monitoring-logo">
-        <img src={safecheckLogo} alt="SafeCheck" className="monitoring-logo-img" />
+        <img src={safecheckLogo} alt="MadeIt" className="monitoring-logo-img" />
       </div>
 
       <header className="monitoring-top">

@@ -1,7 +1,6 @@
 import { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
-import { Check } from "lucide-react";
 
 const WaitlistForm = () => {
   const [email, setEmail] = useState("");
@@ -11,80 +10,67 @@ const WaitlistForm = () => {
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     setError("");
-
-    // Simple email validation
     if (!email || !email.includes("@")) {
       setError("Please enter a valid email address.");
       return;
     }
-
-    // Simulate form submission
     setSubmitted(true);
   };
 
-  if (submitted) {
-    return (
-      <section id="waitlist" className="bg-primary/5 py-20 md:py-28">
-        <div className="container mx-auto px-4">
-          <div className="mx-auto max-w-md rounded-2xl border border-border bg-card p-8 text-center card-shadow-lg">
-            <div className="mx-auto mb-6 flex h-16 w-16 items-center justify-center rounded-full bg-primary/10">
-              <Check className="w-8 h-8 text-primary" />
-            </div>
-            <h3 className="mb-2 text-2xl font-semibold">You&apos;re on the list!</h3>
-            <p className="text-muted-foreground">
-              We&apos;ll be in touch with updates. No spam, promise.
-            </p>
-          </div>
-        </div>
-      </section>
-    );
-  }
-
   return (
-    <section id="waitlist" className="bg-primary/5 py-20 md:py-28">
-      <div className="container mx-auto px-4">
-        <div className="mx-auto max-w-md">
-          <div className="mb-8 text-center">
-            <h2 className="mb-3 text-3xl font-semibold md:text-4xl">
-              Get early access
-            </h2>
-            <p className="text-muted-foreground">
-              Be the first to know when we launch.
-            </p>
-          </div>
+    <section id="waitlist" className="bg-slate-50 py-24 md:py-32">
+      <div className="mx-auto w-full max-w-7xl px-5 sm:px-6 lg:px-8">
 
-          <form
-            onSubmit={handleSubmit}
-            className="rounded-2xl border border-border bg-card p-6 card-shadow-lg md:p-8"
-          >
-            <div className="space-y-4">
-              <div>
-                <label htmlFor="email" className="mb-2 block text-sm font-medium">
-                  Email <span className="text-destructive">*</span>
-                </label>
+        {submitted ? (
+          <div className="text-center">
+            <p className="text-[0.72rem] font-semibold uppercase tracking-[0.24em] text-slate-500">
+              You're in
+            </p>
+            <h2 className="mt-4 text-4xl font-semibold tracking-[-0.04em] text-slate-900 md:text-5xl">
+              We'll be in touch.
+            </h2>
+            <p className="mt-4 text-base text-slate-500">No spam. Only when it matters.</p>
+          </div>
+        ) : (
+          <div className="mx-auto max-w-2xl text-center">
+            <p className="text-[0.72rem] font-semibold uppercase tracking-[0.24em] text-slate-500">
+              Early access
+            </p>
+            <h2 className="mt-4 text-4xl font-semibold leading-[1.04] tracking-[-0.045em] text-slate-900 md:text-5xl">
+              Be the first to know.
+            </h2>
+            <p className="mt-4 text-base leading-7 text-slate-500 md:text-lg">
+              We're building MadeIt for the moments that matter most.
+            </p>
+
+            <form onSubmit={handleSubmit} className="mt-10">
+              <div className="flex flex-col items-center gap-3 sm:flex-row sm:justify-center">
                 <Input
-                  id="email"
                   type="email"
-                  placeholder="you@example.com"
+                  placeholder="your@email.com"
                   value={email}
                   onChange={(e) => setEmail(e.target.value)}
-                  className="h-12 rounded-xl"
                   required
+                  className="h-12 w-full max-w-xs rounded-xl border-slate-200 bg-white text-base placeholder:text-slate-400 focus-visible:ring-primary sm:max-w-[280px]"
                 />
+                <Button
+                  type="submit"
+                  size="lg"
+                  className="h-12 w-full rounded-xl px-8 text-base shadow-[0_12px_28px_-16px_hsl(var(--primary)/0.6)] sm:w-auto"
+                >
+                  Join the waitlist
+                </Button>
               </div>
-
-              {error && <p className="text-sm text-destructive">{error}</p>}
-
-              <Button type="submit" className="h-12 w-full rounded-xl" size="lg">
-                Get early access
-              </Button>
-
-              <p className="text-center text-xs text-muted-foreground">
-                No spam. Only product updates.
+              {error && (
+                <p className="mt-3 text-sm text-destructive">{error}</p>
+              )}
+              <p className="mt-5 text-xs text-slate-400">
+                Joined by 400+ people already on the list. No spam, ever.
               </p>
-            </div>
-          </form>
-        </div>
+            </form>
+          </div>
+        )}
+
       </div>
     </section>
   );

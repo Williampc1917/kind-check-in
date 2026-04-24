@@ -1,10 +1,10 @@
 import Navigation from "@/components/landing/Navigation";
 import Hero from "@/components/landing/Hero";
 import HowItWorks from "@/components/landing/HowItWorks";
+import TrustStrip from "@/components/landing/TrustStrip";
 import UseCases from "@/components/landing/UseCases";
 import WaitlistForm from "@/components/landing/WaitlistForm";
 import FAQ from "@/components/landing/FAQ";
-import FinalCTA from "@/components/landing/FinalCTA";
 import Footer from "@/components/landing/Footer";
 
 const Index = () => {
@@ -14,10 +14,10 @@ const Index = () => {
       <main className="pt-16">
         <Hero />
         <HowItWorks />
+        <TrustStrip />
         <UseCases />
         <WaitlistForm />
         <FAQ />
-        <FinalCTA />
       </main>
       <Footer />
     </div>

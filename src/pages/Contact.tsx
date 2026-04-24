@@ -3,7 +3,7 @@ import InfoPageLayout from "@/components/legal/InfoPageLayout";
 const contactCards = [
   {
     title: "Email",
-    detail: "hello@safecheck.app",
+    detail: "hello@madeit.app",
     note: "Best place for questions, feedback, or anything else related to the app.",
   },
 ];
@@ -12,7 +12,7 @@ const Contact = () => {
   return (
     <InfoPageLayout
       title="Contact"
-      subtitle="A simple way to reach me while I’m building SafeCheck."
+      subtitle="A simple way to reach me while I’m building MadeIt."
       meta="Solo builder page • Response times may vary"
     >
       <div className="max-w-2xl space-y-8">
@@ -21,7 +21,7 @@ const Contact = () => {
             Get in touch
           </h2>
           <p className="mt-4 text-[1rem] leading-7 text-slate-600">
-            SafeCheck is currently a solo project, so email is the best way to reach me. If you have feedback, found a bug, or want to talk about the product, send a note and I’ll get back to you when I can.
+            MadeIt is currently a solo project, so email is the best way to reach me. If you have feedback, found a bug, or want to talk about the product, send a note and I’ll get back to you when I can.
           </p>
         </section>
 
@@ -45,7 +45,7 @@ const Contact = () => {
           <ul className="mt-4 space-y-3 text-sm leading-6 text-slate-600">
             <li>Bug reports or rough edges you noticed</li>
             <li>Ideas for reminders, alerts, or trusted contact flows</li>
-            <li>Questions about what SafeCheck is trying to do</li>
+            <li>Questions about what MadeIt is trying to do</li>
             <li>Early feedback from using the landing page or product</li>
           </ul>
         </section>
