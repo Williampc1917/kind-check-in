@@ -3,7 +3,7 @@ import InfoPageLayout from "@/components/legal/InfoPageLayout";
 const contactCards = [
   {
     title: "Email",
-    detail: "hello@madeit.app",
+    detail: "support@getmadeitapp.com",
     note: "Best place for questions, feedback, or anything else related to the app.",
   },
 ];

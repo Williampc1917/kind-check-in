@@ -28,8 +28,8 @@ const sections = [
   {
     title: "SMS Messaging and Trusted Contact Consent",
     paragraphs: [
-      "MadeIt sends SMS text messages to the trusted contacts you designate in the app. These messages are transactional safety alerts — not marketing. We send four types of SMS: (1) a consent request asking the contact if they agree to receive alerts, (2) an opt-in confirmation once they accept, (3) escalation alerts if you miss a check-in deadline, and (4) a resolved update when you mark yourself safe.",
-      "No SMS messages are sent to a contact until they have consented. When you add a trusted contact, MadeIt sends them a one-time consent request: 'Sarah added you as a safety contact on MadeIt. If they don't check in safely, you'll receive a text alert. Reply YES to accept or STOP to decline.' Only contacts who reply YES receive any further messages.",
+      "MadeIt sends SMS/text messages to the trusted contacts you designate in the app. These messages are transactional safety alerts — not marketing. We send four types of SMS: (1) a consent request asking the contact to agree to receive MadeIt SMS/text messages, (2) an opt-in confirmation once they accept, (3) escalation alerts if you miss a check-in deadline, and (4) a resolved update when you mark yourself safe.",
+      "No SMS messages are sent to a contact until they have consented. When you add a trusted contact, MadeIt sends them a one-time consent request: 'Sarah added you as a trusted contact on MadeIt. Reply YES to agree to receive MadeIt SMS/text messages about Sarah's safety check-ins, including missed check-in alerts and safe/resolved updates. Reply STOP to opt out. Msg & data rates may apply.' Only contacts who reply YES receive any further messages.",
       "Contacts can withdraw consent at any time by replying STOP to any message from MadeIt. This immediately removes them from all future alerts. Contacts who previously opted out can reinstate their consent by replying START or UNSTOP.",
       "STOP, START, UNSTOP, and HELP keywords are handled automatically by our SMS provider. Replying STOP will always be honored immediately, and no further messages will be sent to that number.",
       "Message and data rates may apply. Message frequency varies based on how often you use check-ins and how many trusted contacts you have.",
@@ -65,7 +65,7 @@ const sections = [
       "Audit records — including SMS consent event logs, message delivery records, and system audit trails — may be retained after account deletion with your user identifier removed. These anonymized records are kept for legal, compliance, and abuse-prevention purposes.",
       "Device records that have been inactive for 90 or more days are eligible for cleanup to prevent unbounded data accumulation from uninstalls.",
       "SMS rate-limit and usage meter data is maintained on rolling 24-hour windows and does not persist beyond what is needed for enforcement.",
-      "You may request deletion of your account and associated personal data by contacting support@madeit.app. Account deletion cascades to all personal data: profile, devices, contacts, check-in history, and consent records. Anonymized audit rows are retained as described above.",
+      "You may request deletion of your account and associated personal data by contacting support@getmadeitapp.com. Account deletion cascades to all personal data: profile, devices, contacts, check-in history, and consent records. Anonymized audit rows are retained as described above.",
     ],
   },
   {
@@ -73,8 +73,8 @@ const sections = [
     paragraphs: [
       "Opt out of SMS at any time: If you are a trusted contact who has received messages from MadeIt, reply STOP to any MadeIt message to immediately opt out. No further messages will be sent. Reply START or UNSTOP to re-enable messages.",
       "Manage notification preferences: You can disable push notifications from within the app settings or your device's system settings at any time.",
-      "Access and correction: You may request a copy of the personal data we hold about you by emailing support@madeit.app. You may also update your display name, time zone, and notification preferences directly in the app.",
-      "Account deletion: To delete your account and all associated personal data, email support@madeit.app. We will process deletion requests within a reasonable timeframe.",
+      "Access and correction: You may request a copy of the personal data we hold about you by emailing support@getmadeitapp.com. You may also update your display name, time zone, and notification preferences directly in the app.",
+      "Account deletion: To delete your account and all associated personal data, email support@getmadeitapp.com. We will process deletion requests within a reasonable timeframe.",
       "California and international users: Depending on your jurisdiction, you may have additional rights including data portability, restriction of processing, and the right to lodge a complaint with a supervisory authority.",
     ],
   },
@@ -89,7 +89,7 @@ const sections = [
   {
     title: "Children's Privacy",
     paragraphs: [
-      "MadeIt is not intended for use by children under the age of 13. We do not knowingly collect personal information from children under 13. If you believe we have inadvertently collected such information, please contact support@madeit.app and we will delete it promptly.",
+      "MadeIt is not intended for use by children under the age of 13. We do not knowingly collect personal information from children under 13. If you believe we have inadvertently collected such information, please contact support@getmadeitapp.com and we will delete it promptly.",
     ],
   },
   {
@@ -101,7 +101,7 @@ const sections = [
   {
     title: "Contact",
     paragraphs: [
-      "For privacy questions, data requests, or to exercise your rights, contact us at support@madeit.app. We aim to respond to all requests within 30 days.",
+      "For privacy questions, data requests, or to exercise your rights, contact us at support@getmadeitapp.com. We aim to respond to all requests within 30 days.",
     ],
   },
 ];

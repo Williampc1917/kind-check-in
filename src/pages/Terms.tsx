@@ -88,7 +88,7 @@ const sections = [
   {
     title: "Contact",
     paragraphs: [
-      "For questions about these terms, contact us at support@madeit.app.",
+      "For questions about these terms, contact us at support@getmadeitapp.com.",
     ],
   },
 ];

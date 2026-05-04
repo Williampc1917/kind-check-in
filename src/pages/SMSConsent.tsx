@@ -7,7 +7,7 @@ const optInSteps = [
   "The user sends a consent request from the trusted contact screen.",
   "MadeIt sends that contact a consent request SMS.",
   "The contact moves to a pending/waiting state while MadeIt waits for their reply.",
-  "The contact must reply YES to accept.",
+  "The contact must reply YES to agree to receive MadeIt SMS/text messages about the user's safety check-ins.",
   "MadeIt records the YES reply and marks the contact as confirmed.",
   "Only confirmed contacts can receive MadeIt safety alert SMS messages.",
 ];
@@ -44,12 +44,12 @@ const messageSamples = [
   {
     title: "Consent request message",
     description: "This is the first SMS MadeIt sends to a trusted contact. The name changes based on the MadeIt user's display name.",
-    body: "Sarah added you as a safety contact on MadeIt. If they\ndon't check in safely, you'll receive a text alert.\nReply YES to accept or STOP to decline.",
+    body: "Sarah added you as a trusted contact on MadeIt. Reply YES to agree to receive MadeIt SMS/text messages about Sarah's safety check-ins, including missed check-in alerts and safe/resolved updates. Reply STOP to opt out. Msg & data rates may apply.",
   },
   {
     title: "Confirmation after YES",
     description: "When the trusted contact replies YES, MadeIt confirms the opt-in.",
-    body: "MadeIt: You're confirmed as Sarah's safety contact. Reply STOP to opt out.",
+    body: "MadeIt: You're confirmed to receive SMS/text alerts about Sarah's safety check-ins. Reply STOP to opt out. Reply HELP for help.",
   },
   {
     title: "Safety alert without a personal note",
