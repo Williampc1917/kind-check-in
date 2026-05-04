@@ -5,7 +5,7 @@
   "type": "module",
   "scripts": {
     "dev": "vite",
-    "build": "vite build && for route in sms-consent privacy terms contact; do mkdir -p dist/$route && cp dist/index.html dist/$route/index.html; done && cp dist/index.html dist/404.html",
+    "build": "vite build && mkdir -p dist/sms-consent && cp dist/index.html dist/sms-consent/index.html && for route in privacy terms contact; do cp dist/index.html dist/$route; done && cp dist/index.html dist/404.html",
     "build:dev": "vite build --mode development",
     "lint": "eslint .",
     "preview": "vite preview",
