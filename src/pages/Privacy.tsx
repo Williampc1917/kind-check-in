@@ -4,7 +4,7 @@ const sections = [
   {
     title: "Information We Collect",
     paragraphs: [
-      "Account information: When you create a MadeIt account, we collect your email address and the display name you provide during onboarding. If you sign in with Google, we receive your Google account email via OAuth. Apple Sign-In may provide a private relay email address.",
+      "Account information: When you create a MadeIt: Safety Check-Ins account, we collect your email address and the display name you provide during onboarding. If you sign in with Google, we receive your Google account email via OAuth. Apple Sign-In may provide a private relay email address.",
       "App preferences: We store your time format preference (12-hour or 24-hour), time zone, and notification settings — including whether you have enabled check-in reminders and promotional updates.",
       "Device information: We collect your device's push notification token (APNs), app version, iOS version, notification permission state, Live Activities permission state, and last active timestamp. This is used solely to deliver push notifications to your device.",
       "Trusted contact information: When you add a trusted contact, we store their name, phone number (normalized to E.164 international format), the source of the contact (manually entered or imported from Apple Contacts), and their consent status with us.",
@@ -17,7 +17,8 @@ const sections = [
   {
     title: "How We Use Your Information",
     paragraphs: [
-      "We use your information to operate MadeIt: to authenticate you, run check-in timers, deliver push notifications to your device, send SMS alerts to your trusted contacts when a check-in is missed, and send you a resolved update when you check in safely.",
+      "We use your information to operate MadeIt: Safety Check-Ins: to authenticate you, run check-in timers, deliver push notifications to your device, send SMS alerts to your trusted contacts when a check-in is missed, and send you a resolved update when you check in safely.",
+      "SMS/text messages may include safety check-ins, account notices, emergency-contact alerts, trusted contact consent requests, missed check-in alerts, and safe/resolved updates.",
       "Your display name is included in SMS messages sent to your trusted contacts so they know who the alert is from. For example: 'MadeIt: [Your Name] hasn't checked in for Walking Home — due by 11:30 PM.'",
       "We use your device token to send push notifications about check-in reminders and escalation status. We use your time zone to schedule these notifications at the right local time.",
       "We use subscription data from RevenueCat to determine your plan tier and enforce the corresponding feature limits.",
@@ -28,7 +29,8 @@ const sections = [
   {
     title: "SMS Messaging and Trusted Contact Consent",
     paragraphs: [
-      "MadeIt sends SMS/text messages to the trusted contacts you designate in the app. These messages are transactional safety alerts — not marketing. We send four types of SMS: (1) a consent request asking the contact to agree to receive MadeIt SMS/text messages, (2) an opt-in confirmation once they accept, (3) escalation alerts if you miss a check-in deadline, and (4) a resolved update when you mark yourself safe.",
+      "By providing your phone number, you agree to receive safety check-in, account, and emergency-contact-related SMS messages from MadeIt: Safety Check-Ins. Message frequency varies based on your use of the app. Message and data rates may apply. Reply STOP to opt out and HELP for help. Consent is not a condition of purchase.",
+      "MadeIt sends SMS/text messages to the trusted contacts you designate in the app. These messages are transactional safety and emergency-contact alerts — not marketing. We send four types of SMS: (1) a consent request asking the contact to agree to receive MadeIt SMS/text messages, (2) an opt-in confirmation once they accept, (3) escalation alerts if you miss a check-in deadline, and (4) a resolved update when you mark yourself safe.",
       "No SMS messages are sent to a contact until they have consented. When you add a trusted contact, MadeIt sends them a one-time consent request: 'Sarah added you as a trusted contact on MadeIt. Reply YES to agree to receive MadeIt SMS/text messages about Sarah's safety check-ins, including missed check-in alerts and safe/resolved updates. Reply STOP to opt out. Msg & data rates may apply.' Only contacts who reply YES receive any further messages.",
       "Contacts can withdraw consent at any time by replying STOP to any message from MadeIt. This immediately removes them from all future alerts. Contacts who previously opted out can reinstate their consent by replying START or UNSTOP.",
       "STOP, START, UNSTOP, and HELP keywords are handled automatically by our SMS provider. Replying STOP will always be honored immediately, and no further messages will be sent to that number.",
@@ -110,10 +112,13 @@ const Privacy = () => {
   return (
     <InfoPageLayout
       title="Privacy Policy"
-      subtitle="This policy explains what data MadeIt collects, how it is used, and the choices available to you and your trusted contacts."
+      subtitle="This policy explains what data MadeIt: Safety Check-Ins collects, how it is used, and the choices available to you and your trusted contacts."
       meta="Last updated March 31, 2026"
     >
       <div className="space-y-10">
+        <p className="rounded-2xl border border-slate-200 bg-slate-50 px-5 py-4 text-[1rem] leading-7 text-slate-700">
+          This Privacy Policy applies to MadeIt: Safety Check-Ins, also referred to as ‘MadeIt,’ operated by William Pineda as a sole proprietorship.
+        </p>
         {sections.map((section) => (
           <section key={section.title} className="border-b border-slate-200 pb-8 last:border-b-0 last:pb-0">
             <h2 className="text-2xl font-semibold tracking-[-0.03em] text-slate-900">

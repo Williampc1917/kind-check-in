@@ -34,13 +34,13 @@ const WaitlistForm = () => {
         ) : (
           <div className="mx-auto max-w-2xl text-center">
             <p className="text-[0.72rem] font-semibold uppercase tracking-[0.24em] text-slate-500">
-              Early access
+              App updates
             </p>
             <h2 className="mt-4 text-4xl font-semibold leading-[1.04] tracking-[-0.045em] text-slate-900 md:text-5xl">
-              Be the first to know.
+              Stay connected with MadeIt.
             </h2>
             <p className="mt-4 text-base leading-7 text-slate-500 md:text-lg">
-              We're building MadeIt for the moments that matter most.
+              Get important MadeIt: Safety Check-Ins updates, product news, and support notices.
             </p>
 
             <form onSubmit={handleSubmit} className="mt-10">
@@ -58,14 +58,14 @@ const WaitlistForm = () => {
                   size="lg"
                   className="h-12 w-full rounded-xl px-8 text-base shadow-[0_12px_28px_-16px_hsl(var(--primary)/0.6)] sm:w-auto"
                 >
-                  Join the waitlist
+                  Get updates
                 </Button>
               </div>
               {error && (
                 <p className="mt-3 text-sm text-destructive">{error}</p>
               )}
               <p className="mt-5 text-xs text-slate-400">
-                Joined by 400+ people already on the list. No spam, ever.
+                Product updates only. No spam, ever.
               </p>
             </form>
           </div>

@@ -22,7 +22,7 @@ const Footer = () => {
           <div className="flex items-center">
             <img
               src={madeIItLogo}
-              alt="MadeIIt logo"
+              alt="MadeIt logo"
               className="h-6 w-auto max-w-[8rem] object-contain md:h-7 md:max-w-[8.75rem]"
             />
           </div>
@@ -30,10 +30,10 @@ const Footer = () => {
           {/* Links */}
           <div className="flex items-center gap-6 text-sm">
             <Link to="/privacy" className="text-muted-foreground transition-colors hover:text-foreground">
-              Privacy
+              Privacy Policy
             </Link>
             <Link to="/terms" className="text-muted-foreground transition-colors hover:text-foreground">
-              Terms
+              Terms of Service
             </Link>
             <Link to="/contact" className="text-muted-foreground transition-colors hover:text-foreground">
               Contact
@@ -65,7 +65,7 @@ const Footer = () => {
         {/* Copyright */}
         <div className="mt-8 pt-8 border-t border-border text-center">
           <p className="text-sm text-muted-foreground">
-            © {new Date().getFullYear()} MadeIt. All rights reserved.
+            © 2026 MadeIt. All rights reserved.
           </p>
         </div>
       </div>

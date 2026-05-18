@@ -21,7 +21,7 @@ const Navigation = () => {
         <div className="flex items-center">
           <img
             src={madeIItLogo}
-            alt="MadeIIt logo"
+            alt="MadeIt logo"
             className="h-7 w-auto max-w-[8.5rem] object-contain md:h-8 md:max-w-[10rem]"
           />
         </div>
@@ -51,7 +51,7 @@ const Navigation = () => {
         {/* Desktop CTA */}
         <div className="hidden justify-self-end md:flex items-center">
           <Button onClick={() => scrollToSection("waitlist")} className="rounded-xl px-5">
-            Join waitlist
+            Get updates
           </Button>
         </div>
 
@@ -88,7 +88,7 @@ const Navigation = () => {
               FAQ
             </button>
             <Button onClick={() => scrollToSection("waitlist")} className="rounded-xl w-full">
-              Join waitlist
+              Get updates
             </Button>
           </div>
         </div>

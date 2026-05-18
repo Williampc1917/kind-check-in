@@ -218,6 +218,12 @@ const Hero = () => {
         <div className="container mx-auto px-5 sm:px-6 lg:px-8">
           <div className="grid w-full items-center gap-12 lg:grid-cols-[minmax(0,0.94fr)_minmax(0,1.06fr)] lg:gap-0">
             <div className="mx-auto flex max-w-xl flex-col items-center py-12 text-center lg:mx-0 lg:max-w-[34rem] lg:items-start lg:py-16 lg:pr-10 lg:text-left xl:max-w-[36rem]">
+              <p
+                className="hero-fade-up mb-3 text-sm font-semibold uppercase tracking-[0.16em] text-primary"
+                style={{ animationDelay: "60ms" }}
+              >
+                MadeIt: Safety Check-Ins
+              </p>
               <h1 className="hero-fade-up max-w-[11ch] text-4xl font-bold leading-[1.02] tracking-[-0.04em] text-foreground sm:text-5xl md:text-6xl lg:text-[4.25rem]">
                 Your safety net for everyday moments
               </h1>
@@ -240,7 +246,7 @@ const Hero = () => {
                   size="lg"
                   className="min-w-[12rem] rounded-xl px-8 text-base shadow-[0_16px_32px_-20px_hsl(var(--primary)/0.75)]"
                 >
-                  Join the waitlist
+                  Get updates
                 </Button>
                 <Button
                   onClick={() => scrollToSection("how-it-works")}

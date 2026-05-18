@@ -19,7 +19,7 @@ const FinalCTA = () => {
             Join thousands of people who are ready for a smarter way to stay connected.
           </p>
           <Button onClick={scrollToWaitlist} size="lg" className="rounded-xl px-8">
-            Join the waitlist
+            Get updates
           </Button>
         </div>
       </div>

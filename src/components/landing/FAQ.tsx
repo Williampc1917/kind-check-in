@@ -34,7 +34,7 @@ const FAQS = [
   {
     question: "What about pricing?",
     answer:
-      "We'll share pricing closer to launch. Our goal is to make personal safety accessible, with a free tier for core features and affordable plans for power users.",
+      "Pricing and plan details are shown clearly before any purchase. Our goal is to make personal safety accessible, with a free tier for core features and affordable plans for power users.",
   },
 ];
 

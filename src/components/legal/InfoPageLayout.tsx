@@ -19,8 +19,8 @@ const InfoPageLayout = ({
 }: InfoPageLayoutProps) => {
   const { pathname } = useLocation();
   const policyLinks = [
-    { label: "Privacy", to: "/privacy" },
-    { label: "Terms", to: "/terms" },
+    { label: "Privacy Policy", to: "/privacy" },
+    { label: "Terms of Service", to: "/terms" },
     { label: "Contact", to: "/contact" },
     { label: "SMS Consent", to: "/sms-consent" },
   ];
@@ -32,7 +32,7 @@ const InfoPageLayout = ({
           <Link to="/" className="flex items-center">
             <img
               src={madeIItLogo}
-              alt="MadeIIt logo"
+              alt="MadeIt logo"
               className="h-7 w-auto max-w-[8.5rem] object-contain md:h-8 md:max-w-[10rem]"
             />
           </Link>

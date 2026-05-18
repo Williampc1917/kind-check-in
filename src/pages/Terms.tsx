@@ -4,20 +4,21 @@ const sections = [
   {
     title: "Acceptance of Terms",
     paragraphs: [
-      "By accessing or using MadeIt, you agree to these Terms of Service and any additional guidelines or policies incorporated by reference, including our Privacy Policy.",
+      "By accessing or using MadeIt: Safety Check-Ins, you agree to these Terms of Service and any additional guidelines or policies incorporated by reference, including our Privacy Policy.",
       "If you use the service on behalf of an organization, you represent that you have authority to bind that organization to these terms.",
     ],
   },
   {
     title: "Service Description",
     paragraphs: [
-      "MadeIt is a personal safety check-in app that allows you to schedule check-ins, set deadlines and grace periods, and notify trusted contacts via SMS if you do not check in on time.",
-      "The service is provided for informational and coordination purposes only. MadeIt is not a substitute for emergency services, law enforcement, medical support, or other time-critical assistance. If you or someone else is in immediate danger, call 911 or your local emergency number.",
+      "MadeIt: Safety Check-Ins is a personal safety check-in app that allows you to schedule check-ins, set deadlines and grace periods, and notify trusted contacts via SMS if you do not check in on time.",
+      "The service is provided for informational and coordination purposes only. MadeIt: Safety Check-Ins is not a substitute for emergency services, law enforcement, medical support, or other time-critical assistance. If you or someone else is in immediate danger, call 911 or your local emergency number.",
     ],
   },
   {
     title: "SMS Messaging",
     paragraphs: [
+      "By providing your phone number, you agree to receive safety check-in, account, and emergency-contact-related SMS messages from MadeIt: Safety Check-Ins. Message frequency varies based on your use of the app. Message and data rates may apply. Reply STOP to opt out and HELP for help. Consent is not a condition of purchase.",
       "MadeIt sends SMS text messages to the trusted contacts you designate. By adding a trusted contact, you represent that you have a legitimate personal relationship with that contact and that sending them a consent request is appropriate.",
       "Your trusted contacts will receive a consent request SMS before any alert messages are sent to them. Contacts must reply YES to opt in. No escalation alerts are sent to contacts who have not consented.",
       "Contacts can opt out at any time by replying STOP to any message from MadeIt. All opt-out requests are honored immediately. Contacts may re-enable messages by replying START or UNSTOP.",
@@ -97,10 +98,13 @@ const Terms = () => {
   return (
     <InfoPageLayout
       title="Terms of Service"
-      subtitle="Please read these terms carefully before using MadeIt."
+      subtitle="Please read these terms carefully before using MadeIt: Safety Check-Ins."
       meta="Effective March 31, 2026"
     >
       <div className="space-y-10">
+        <p className="rounded-2xl border border-slate-200 bg-slate-50 px-5 py-4 text-[1rem] leading-7 text-slate-700">
+          These Terms govern your use of MadeIt: Safety Check-Ins, also referred to as ‘MadeIt,’ operated by William Pineda as a sole proprietorship.
+        </p>
         {sections.map((section) => (
           <section key={section.title} className="border-b border-slate-200 pb-8 last:border-b-0 last:pb-0">
             <h2 className="text-2xl font-semibold tracking-[-0.03em] text-slate-900">
