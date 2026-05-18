@@ -1,6 +1,6 @@
 import { useEffect, useMemo, useState } from "react";
 import "./MonitoringStateCard.css";
-import safecheckLogo from "@/imgs/safecheck-high-resolution-logo-transparent.png";
+import madeItLogo from "@/imgs/madeit-high-resolution-logo-transparent.png";
 
 type MonitoringStateCardProps = {
   minutesRemaining: number;
@@ -107,7 +107,7 @@ const ActivityCard = ({
     >
       {/* Logo icon */}
       <div className="monitoring-logo">
-        <img src={safecheckLogo} alt="MadeIt" className="monitoring-logo-img" />
+        <img src={madeItLogo} alt="MadeIt" className="monitoring-logo-img" />
       </div>
 
       <header className="monitoring-top">

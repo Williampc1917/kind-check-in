@@ -1,5 +1,5 @@
 import { useEffect, useRef, useState, useCallback } from "react";
-import safecheckLogo from "@/imgs/safecheck-high-resolution-logo-transparent.png";
+import madeItLogo from "@/imgs/madeit-high-resolution-logo-transparent.png";
 import "./LiveActivityPhonePreview.css";
 
 type Phase =
@@ -136,7 +136,7 @@ const LiveActivityPhonePreview = () => {
               <div className="la-live-card">
                 <div className="la-card-top">
                   <div className="la-card-left">
-                    <img src={safecheckLogo} alt="" className="la-logo" />
+                    <img src={madeItLogo} alt="" className="la-logo" />
                     <span className="la-minutes" key={s.minutes}>
                       {s.minutes} min left
                     </span>
