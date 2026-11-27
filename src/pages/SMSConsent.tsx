@@ -7,8 +7,10 @@ const optInSteps = [
   "The user sends a consent request from the trusted contact screen.",
   "MadeIt sends that contact a consent request SMS.",
   "The contact moves to a pending/waiting state while MadeIt waits for their reply.",
-  "The contact must reply YES to agree to receive MadeIt: Safety Check-Ins SMS/text messages about the user's safety check-ins.",
-  "MadeIt records the YES reply and marks the contact as confirmed.",
+  "The contact must reply YES to agree to receive MadeIt: Safety Check-Ins SMS/text messages about the user's safety check-ins, including active check-in status updates, missed check-in alerts, and safe/resolved updates.",
+  "A consent request stays open for a limited time. If the contact doesn't reply YES before it expires, the request ends and the contact gets no alerts.",
+  "If another MadeIt consent request is already waiting for the same phone number, MadeIt sends the next one only after that one is answered or expires.",
+  "MadeIt records the YES reply to the active request and marks the contact as confirmed.",
   "Only confirmed contacts can receive MadeIt: Safety Check-Ins safety alert SMS messages.",
 ];
 
@@ -20,12 +22,12 @@ const statuses = [
   },
   {
     status: "Pending",
-    meaning: "A consent request was sent and MadeIt is waiting for the contact to reply YES.",
+    meaning: "A consent request was sent and MadeIt is waiting for the contact to reply YES before the request expires.",
     eligible: "No",
   },
   {
     status: "Confirmed",
-    meaning: "The contact replied YES or later rejoined with START/UNSTOP after opting out.",
+    meaning: "The contact replied YES for an active consent request, or later rejoined with START/UNSTOP after opting out.",
     eligible: "Yes",
   },
   {
@@ -44,7 +46,7 @@ const messageSamples = [
   {
     title: "Consent request message",
     description: "This is the first SMS MadeIt: Safety Check-Ins sends to a trusted contact. The name changes based on the user's display name.",
-    body: "Sarah added you as a trusted contact on MadeIt. Reply YES to agree to receive MadeIt SMS/text messages about Sarah's safety check-ins, including missed check-in alerts and safe/resolved updates. Reply STOP to opt out. Msg & data rates may apply.",
+    body: "Sarah added you as a trusted contact on MadeIt. Reply YES to agree to receive MadeIt SMS/text messages about Sarah's safety check-ins, including active check-in status updates, missed check-in alerts, and safe/resolved updates. If this was not expected, ignore this message. Reply STOP to opt out. Msg & data rates may apply.",
   },
   {
     title: "Confirmation after YES",
@@ -52,23 +54,38 @@ const messageSamples = [
     body: "MadeIt: You're confirmed to receive SMS/text alerts about Sarah's safety check-ins. Reply STOP to opt out. Reply HELP for help.",
   },
   {
+    title: "Reply to a late YES",
+    description: "If a contact replies YES after their consent request has expired, MadeIt sends this one-time reply. It names nobody.",
+    body: "MadeIt: That request has expired. Ask them to send it again, then reply YES. Reply STOP to opt out.",
+  },
+  {
+    title: "Reply to HELP",
+    description: "When a trusted contact replies HELP.",
+    body: "MadeIt: Help at support@getmadeitapp.com. You receive SMS/text alerts because you opted in as a trusted contact. Reply STOP to opt out.",
+  },
+  {
     title: "Safety alert without a personal note",
     description: "MadeIt: Safety Check-Ins sends safety alerts only to trusted contacts who have replied YES.",
-    body: "MadeIt: Sarah hasn't checked in for Walking Home - due by 11:30 PM.",
+    body: "MadeIt: Sarah hasn't checked in for Walking Home. Due by 11:30 PM.",
   },
   {
     title: "Safety alert with a personal note",
     description: "A MadeIt: Safety Check-Ins user may include a personal note with an alert.",
-    body: "MadeIt: Sarah hasn't checked in for Walking Home - due by 11:30 PM.\n\nSarah says: \"Please try calling me.\"",
+    body: "MadeIt: Sarah hasn't checked in for Walking Home. Due by 11:30 PM.\n\nSarah says: \"Please try calling me.\"",
   },
   {
-    title: "Follow-up alert",
-    description: "Follow-up alerts can be sent to confirmed contacts if the user still has not checked in.",
-    body: "MadeIt: Follow-up - Sarah still hasn't checked in for Walking Home.\n\nSarah says: \"I'm not picking up texts, please call.\"",
+    title: "MadeIt Pro safety alert",
+    description: "With MadeIt Pro, alerts end with a private link to a page about that check-in. The same alert is sent when the user taps Alert now, or doesn't answer a Check on me in 5.",
+    body: "MadeIt: Sarah hasn't checked in for Walking Home. Due by 11:30 PM. Location: getmadeitapp.com/l/7fQ2xK9mPa4L",
+  },
+  {
+    title: "MadeIt Pro Call me",
+    description: "Sent when the user taps Call me during an active check-in. At most 3 per check-in, at least 10 minutes apart.",
+    body: "MadeIt: Sarah asks you to call them. Check-in due 11:30 PM. Location: getmadeitapp.com/l/7fQ2xK9mPa4L",
   },
   {
     title: "Resolved update",
-    description: "Confirmed contacts may receive a resolved update when the user later checks in safely.",
+    description: "Sent when the user taps I'm safe, to every confirmed contact who got a MadeIt text during that check-in.",
     body: "MadeIt: Sarah checked in safely.",
   },
 ];
@@ -79,7 +96,11 @@ const messageTypes = [
   "account alerts related to MadeIt: Safety Check-Ins",
   "safety alerts when a MadeIt: Safety Check-Ins user misses a check-in deadline",
   "user-triggered trusted contact and emergency-contact notifications",
+  "with MadeIt Pro: alerts the user triggers with Alert now, or by not answering a Check on me in 5",
+  "with MadeIt Pro: requests to call the user (Call me) during an active check-in",
+  "with MadeIt Pro: alerts and Call me texts include a link to a MadeIt page about that check-in",
   "resolved updates when the user later checks in safely",
+  "a one-time reply when a YES arrives after a consent request expired",
 ];
 
 const SMSConsent = () => {
@@ -145,9 +166,9 @@ const SMSConsent = () => {
             ))}
           </ol>
           <p className="mt-5 text-[1rem] leading-7 text-slate-600">
-            If the contact does not reply YES, the contact remains pending and does not receive
-            safety alerts. The MadeIt: Safety Check-Ins user may resend the consent request from the app, subject to
-            resend cooldowns and rate limits.
+            If the contact does not reply YES before the request expires, the contact does not
+            receive safety alerts. The MadeIt: Safety Check-Ins user may send the request again from the app, subject
+            to resend cooldowns and rate limits.
           </p>
         </section>
 
@@ -179,7 +200,8 @@ const SMSConsent = () => {
           <p className="mt-5 text-[1rem] leading-7 text-slate-600">
             The app may show actions such as Send consent, Resend consent, Request consent again,
             or Retry consent depending on the contact's current status. These actions do not
-            bypass consent: safety alerts are still sent only after the contact is confirmed.
+            bypass consent: safety alerts are still sent only after the contact is confirmed. In the app,
+            a consent request is called an invite.
           </p>
         </section>
 
@@ -216,8 +238,9 @@ const SMSConsent = () => {
               Trusted contacts can reply HELP for help with MadeIt: Safety Check-Ins SMS messages.
             </p>
             <p>
-              To opt back in after replying STOP, the contact can reply START or UNSTOP to the
-              MadeIt SMS number.
+              To restore SMS delivery ability after replying STOP, the contact can reply START or
+              UNSTOP to the MadeIt SMS number. START/UNSTOP does not create consent for unrelated or
+              new trusted-contact relationships.
             </p>
           </div>
         </section>
@@ -238,6 +261,8 @@ const SMSConsent = () => {
           <p className="mt-4 text-[1rem] leading-7 text-slate-600">
             Message frequency varies based on how often the MadeIt: Safety Check-Ins user starts check-ins, whether
             they miss a deadline, and how many confirmed trusted contacts they have. Message and data rates may apply.
+            With MadeIt Pro, the user can also send Alert now once per check-in and Call me up to 3 times per
+            check-in, at least 10 minutes apart.
           </p>
         </section>
 
