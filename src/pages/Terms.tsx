@@ -20,8 +20,8 @@ const sections = [
     paragraphs: [
       "By providing your phone number, you agree to receive safety check-in, account, and emergency-contact-related SMS messages from MadeIt: Safety Check-Ins. Message frequency varies based on your use of the app. Message and data rates may apply. Reply STOP to opt out and HELP for help. Consent is not a condition of purchase.",
       "MadeIt sends SMS text messages to the trusted contacts you designate. By adding a trusted contact, you represent that you have a legitimate personal relationship with that contact and that sending them a consent request is appropriate.",
-      "Your trusted contacts will receive a consent request SMS before any alert messages are sent to them. Contacts must reply YES to opt in. No escalation alerts are sent to contacts who have not consented.",
-      "Contacts can opt out at any time by replying STOP to any message from MadeIt. All opt-out requests are honored immediately. Contacts may re-enable messages by replying START or UNSTOP.",
+      "Trusted contacts receive a consent-request SMS asking them to reply YES. No missed check-in alerts, Call me texts or safe/resolved updates are sent for that relationship until the contact has consented.",
+      "Replying STOP immediately stops MadeIt SMS messages to your number. Replying START or UNSTOP restores delivery for eligible previously consented relationships; it does not give consent to new trusted-contact relationships.",
       "Message and data rates may apply to messages sent to and received from your trusted contacts. Message frequency depends on how often you run check-ins and how many contacts you have.",
       "You agree not to add contacts for the purpose of sending unsolicited messages, to misrepresent your identity in check-in templates, or to use the SMS feature in any way that violates applicable law including the Telephone Consumer Protection Act (TCPA).",
     ],
@@ -37,14 +37,16 @@ const sections = [
   {
     title: "Alerts and Availability",
     paragraphs: [
-      "Alert delivery may depend on device settings, internet connectivity, third-party messaging providers, and recipient availability. We do not guarantee uninterrupted performance or guaranteed delivery of every alert.",
+      "Alert delivery may depend on device settings, internet connectivity, third-party messaging providers, and recipient availability. We do not guarantee uninterrupted performance or guaranteed delivery of every alert. Live Activity display duration and availability are controlled by iOS and may end before a check-in; an active check-in's safety plan can continue on the service.",
+      "Wireless carriers are not liable for delayed or undelivered messages.",
       "We may modify, suspend, or discontinue parts of the service from time to time, including in connection with maintenance, upgrades, or security needs.",
     ],
   },
   {
     title: "Fees and Trials",
     paragraphs: [
-      "If paid plans are introduced, pricing, billing intervals, and renewal terms will be presented to you before purchase. Trial periods, if offered, may convert to paid subscriptions unless canceled before the trial ends.",
+      "If paid plans, free trials, or purchase restoration are offered in the app, pricing, billing intervals, trial length, renewal terms, cancellation information, and restore options will be presented before purchase or where otherwise required in the app experience.",
+      "App Store purchases and subscriptions are managed by Apple. If you start an auto-renewable subscription, it may renew unless canceled through your Apple account or App Store subscription settings before the renewal date. Deleting your MadeIt account does not automatically cancel App Store billing.",
     ],
   },
   {
@@ -99,7 +101,7 @@ const Terms = () => {
     <InfoPageLayout
       title="Terms of Service"
       subtitle="Please read these terms carefully before using MadeIt: Safety Check-Ins."
-      meta="Effective March 31, 2026"
+      meta="Effective November 27, 2026"
     >
       <div className="space-y-10">
         <p className="rounded-2xl border border-slate-200 bg-slate-50 px-5 py-4 text-[1rem] leading-7 text-slate-700">
